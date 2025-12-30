@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descarga WarnApp - La app de alertas de vehículos en tiempo real">
+    <title>WarnApp - Descarga la App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1f2023 0%, #2d3034 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: #FCD34D;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #9ca3af;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            color: #1f2023;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 25px rgba(252, 211, 77, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(252, 211, 77, 0.4);
+        }
+
+        .platform-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .platform-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(252, 211, 77, 0.3);
+            border-radius: 50%;
+            border-top-color: #FCD34D;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .detecting {
+            color: #9ca3af;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo">🚨</div>
+    <h1>WarnApp</h1>
+    <p>Alertas de vehículos en tiempo real. Comparte y recibe avisos de incidencias cerca de ti.</p>
+
+    <div id="content">
+        <div class="loader"></div>
+        <p class="detecting">Detectando tu dispositivo...</p>
+    </div>
+
+    <div class="platform-info" id="platform-info" style="display: none;">
+        <div class="platform-icon" id="platform-icon"></div>
+        <p id="platform-text"></p>
+    </div>
+</div>
+
+<script>
+    // URLs de las tiendas - ACTUALIZA ESTOS ENLACES
+    const APP_STORE_URL = 'https://testflight.apple.com/join/TU_CODIGO_TESTFLIGHT'; // Reemplazar con tu enlace de TestFlight
+    const PLAY_STORE_URL = 'https://play.google.com/apps/internaltest/47006602404409329859'; // Reemplazar con tu enlace de Play Store o beta
+
+    // Detectar plataforma
+    function detectPlatform() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Detectar iOS
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return 'ios';
+        }
+
+        // Detectar Android
+        if (/android/i.test(userAgent)) {
+            return 'android';
+        }
+
+        // Detectar Mac (para mostrar info)
+        if (/Mac/.test(userAgent)) {
+            return 'mac';
+        }
+
+        // Por defecto, asumir Android (más común)
+        return 'android';
+    }
+
+    // Redirigir según plataforma
+    function redirectToStore() {
+        const platform = detectPlatform();
+        const content = document.getElementById('content');
+        const platformInfo = document.getElementById('platform-info');
+        const platformIcon = document.getElementById('platform-icon');
+        const platformText = document.getElementById('platform-text');
+
+        let storeUrl;
+        let platformName;
+        let icon;
+
+        if (platform === 'ios') {
+            storeUrl = APP_STORE_URL;
+            platformName = 'iOS';
+            icon = '🍎';
+        } else if (platform === 'mac') {
+            // Usuario en Mac, mostrar ambas opciones
+            content.innerHTML = `
+                    <p style="margin-bottom: 20px;">Escanea el código QR desde tu móvil o elige tu plataforma:</p>
+                    <a href="${APP_STORE_URL}" class="download-btn" style="display: block; margin-bottom: 15px;">
+                        🍎 Descargar para iOS
+                    </a>
+                    <a href="${PLAY_STORE_URL}" class="download-btn" style="display: block;">
+                        🤖 Descargar para Android
+                    </a>
+                `;
+            return;
+        } else {
+            storeUrl = PLAY_STORE_URL;
+            platformName = 'Android';
+            icon = '🤖';
+        }
+
+        // Mostrar información y botón
+        platformIcon.textContent = icon;
+        platformText.textContent = `Detectamos que usas ${platformName}`;
+        platformInfo.style.display = 'block';
+
+        content.innerHTML = `
+                <a href="${storeUrl}" class="download-btn">
+                    Descargar WarnApp
+                </a>
+            `;
+
+        // Redirección automática después de 1.5 segundos
+        setTimeout(() => {
+            window.location.href = storeUrl;
+        }, 1500);
+    }
+
+    // Ejecutar al cargar
+    window.addEventListener('load', redirectToStore);
+</script>
+</body>
+</html>

@@ -39,8 +39,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
         }
 
         h1 {
@@ -112,7 +119,9 @@
 </head>
 <body>
 <div class="container">
-    <div class="logo">🚨</div>
+    <div class="logo">
+        <img src="logo.png" alt="WarnApp Logo">
+    </div>
     <h1>WarnApp</h1>
     <p>Alertas de vehículos en tiempo real. Comparte y recibe avisos de incidencias cerca de ti.</p>
 

@@ -61,7 +61,15 @@
 </head>
 <body>
     <h1>Politique de confidentialité</h1>
-    <p class="update-date">Dernière mise à jour : 01/07/2026</p>
+    <p class="update-date" id="update-date"></p>
+    <script>
+        // Obtenir la date actuelle au format français (JJ/MM/AAAA)
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        document.getElementById('update-date').textContent = `Dernière mise à jour : ${day}/${month}/${year}`;
+    </script>
 
     <div class="content">
             <p class="intro">

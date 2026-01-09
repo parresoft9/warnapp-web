@@ -61,7 +61,14 @@
 </head>
 <body>
     <h1>Politique d'utilisation acceptable</h1>
-    <p class="update-date">Dernière mise à jour : 01/07/2026</p>
+    <p class="update-date" id="update-date"></p>
+    <script>
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        document.getElementById('update-date').textContent = `Dernière mise à jour : ${day}/${month}/${year}`;
+    </script>
 
     <div class="content">
             <p class="intro">

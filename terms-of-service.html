@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Términos de Servicio de WarnApp">
+    <title>Términos de Servicio - WarnApp</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FFD700;
+            --secondary-color: #1C1C1E;
+            --text-dark: #1C1C1E;
+            --text-light: #5E5E5E;
+            --background-light: #FFFBF0;
+            --background-cream: #FFF9E5;
+            --white: #FFFEF8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--background-light);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .logo-text-warn {
+            color: var(--primary-color);
+        }
+
+        .logo-text-app {
+            color: var(--text-dark);
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #6C6C70;
+            letter-spacing: 0.3px;
+            padding-left: 0.3rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Policy Content */
+        .policy-container {
+            max-width: 1000px;
+            margin: 120px auto 4rem;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .policy-container h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .update-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .policy-container h2 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-container h3 {
+            font-size: 1.35rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .policy-container p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .policy-container ul {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .policy-container li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .policy-container a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .policy-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #999;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .policy-container {
+                margin: 100px 1rem 2rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .policy-container h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="WarnApp Logo">
+                <div class="logo-text-container">
+                    <span class="logo-text"><span class="logo-text-warn">Warn</span><span class="logo-text-app">App</span></span>
+                    <span class="logo-tagline">Seguridad en tus manos</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Características</a></li>
+                <li><a href="index.html#how-it-works">Cómo Funciona</a></li>
+                <li><a href="index.html#pricing">Precios</a></li>
+                <li><a href="index.html#download">Descargar</a></li>
+                <li class="language-selector">
+                    <select onchange="window.location.href=this.value">
+                        <option value="terms-of-service.html" selected>🇪🇸 ES</option>
+                        <option value="en/terms-of-service.html">🇬🇧 EN</option>
+                        <option value="fr/terms-of-service.html">🇫🇷 FR</option>
+                        <option value="de/terms-of-service.html">🇩🇪 DE</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Policy Content -->
+    <div class="policy-container">
+        <iframe src="es/policies/terms-of-service.html" 
+                style="width: 100%; min-height: 2000px; border: none;"
+                frameborder="0"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WarnApp</h3>
+                <p>La solución definitiva para alertas vehiculares en tiempo real.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Producto</h3>
+                <ul>
+                    <li><a href="index.html#features">Características</a></li>
+                    <li><a href="index.html#pricing">Precios</a></li>
+                    <li><a href="index.html#download">Descargar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="terms-of-service.html">Términos de Servicio</a></li>
+                    <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                    <li><a href="acceptable-use-policy.html">Política de Uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="mailto:support@warnapp.com">Soporte</a></li>
+                    <li><a href="mailto:contact@warnapp.com">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WarnApp. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

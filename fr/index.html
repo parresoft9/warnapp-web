@@ -6,7 +6,7 @@
     <meta name="description" content="WarnApp - Alertes véhicules en temps réel. Protégez votre véhicule avec des notifications instantanées.">
     <meta name="keywords" content="alertas vehiculares, notificaciones, seguridad vehículos, avisos coche">
     <title>WarnApp - Alertes Véhicules en Temps Réel</title>
-    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="icon" href="../resources/images/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -152,6 +152,39 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            background: transparent;
+            border: none;
+        }
+
+        .hamburger-menu span {
+            width: 28px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* Hero Section */
@@ -767,8 +800,44 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .cta-button {
                 display: none;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .language-selector {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .language-selector select {
+                width: 100%;
             }
 
             .hero-content {
@@ -821,7 +890,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">
-                <img src="/logo.png" alt="WarnApp Logo">
+                <img src="../resources/images/logo.png" alt="WarnApp Logo">
                 <div class="logo-text-container">
                     <span class="logo-text"><span class="logo-text-warn">Warn</span><span class="logo-text-app">App</span></span>
                     <span class="logo-tagline">Sécurité dans vos mains</span>
@@ -847,6 +916,11 @@
                 </svg>
                 Télécharger App
             </a>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -1097,6 +1171,34 @@
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger-menu');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const hamburger = document.querySelector('.hamburger-menu');
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Fermer le menu au clic à l'extérieur
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger-menu');
+            if (navLinks && hamburger && !e.target.closest('nav')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

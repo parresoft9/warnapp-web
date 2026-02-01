@@ -144,6 +144,27 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Mobile Download Icon */
+        .mobile-download-icon {
+            display: none;
+            background: var(--primary-color);
+            color: var(--text-dark);
+            padding: 0.75rem;
+            border-radius: 50%;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+
+        .mobile-download-icon:active {
+            transform: scale(0.95);
+        }
+
         /* Policy Content */
         .policy-container {
             max-width: 1000px;
@@ -207,6 +228,10 @@
                 display: flex;
             }
 
+            .mobile-download-icon {
+                display: flex;
+            }
+
             nav {
                 padding: 1rem;
             }
@@ -262,6 +287,11 @@
                     </select>
                 </li>
             </ul>
+            <a href="index.html#download" class="mobile-download-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                </svg>
+            </a>
             <div class="hamburger-menu" onclick="toggleMenu()">
                 <span></span>
                 <span></span>

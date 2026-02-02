@@ -32,7 +32,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
         }
 
@@ -380,6 +381,19 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .logo-container {
+                margin-bottom: 2rem;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
             .logo-text {
                 font-size: 2.5rem;
             }

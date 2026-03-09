@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guion de Testing WarnApp - Testing completo pre-producción iOS & Android">
+    <title>WarnApp - Testing Guide Completo</title>
+    <link rel="stylesheet" href="testing-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📋 GUION DE TESTING - WARNAPP</h1>
+            <p style="font-size: 1.1rem; margin-top: 10px;">Testing Completo Pre-Producción iOS & Android</p>
+            <div class="metadata">
+                <span>📦 Versión: <strong id="app-version">1.6.0+100</strong></span>
+                <span>📅 Fecha: <strong id="test-date">15 de Marzo 2026</strong></span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+            <div class="progress-stats">
+                <div class="stat">
+                    <div class="stat-value" id="totalTests">0</div>
+                    <div class="stat-label">Tests Totales</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="passedTests">0</div>
+                    <div class="stat-label">✅ Pass</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="failedTests">0</div>
+                    <div class="stat-label">❌ Fail</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="pendingTests">0</div>
+                    <div class="stat-label">⏳ Pendientes</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-primary" onclick="exportResults()">📤 Exportar Resultados</button>
+            <button class="btn btn-secondary" onclick="toggleAllSections()">📂 Expandir/Colapsar Todo</button>
+            <button class="btn btn-danger" onclick="resetTesting()">🔄 Reiniciar Testing</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTests('all')">Todos</button>
+            <button class="filter-btn" onclick="filterTests('pass')">✅ Pasados</button>
+            <button class="filter-btn" onclick="filterTests('fail')">❌ Fallidos</button>
+            <button class="filter-btn" onclick="filterTests('pending')">⏳ Pendientes</button>
+        </div>
+
+        <!-- Testing Sections -->
+        <div id="sectionsContainer"></div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <h2>📊 Resultados del Testing</h2>
+            <pre id="exportContent"></pre>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" onclick="copyToClipboard()">📋 Copiar</button>
+                <button class="btn btn-secondary" onclick="downloadReport()">💾 Descargar</button>
+                <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="testing-data.js"></script>
+    <script src="testing-app.js"></script>
+</body>
+</html>

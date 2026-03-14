@@ -14,8 +14,25 @@
             <h1>📋 GUION DE TESTING - WARNAPP</h1>
             <p style="font-size: 1.1rem; margin-top: 10px;">Testing Completo Pre-Producción iOS & Android</p>
             <div class="metadata">
-                <span>📦 Versión: <strong id="app-version">1.6.0+100</strong></span>
-                <span>📅 Fecha: <strong id="test-date">15 de Marzo 2026</strong></span>
+                <span>
+                    <strong>📦 Versión:</strong> 
+                    <input type="text" 
+                           id="app-version-input"
+                           class="version-input" 
+                           placeholder="Ej: 1.6.0+100"
+                           value="1.6.0+100"
+                           onchange="saveVersion(this)"
+                           style="width: 150px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem;">
+                </span>
+                <span>
+                    <strong>📅 Fecha:</strong>
+                    <input type="date" 
+                           id="test-date-input"
+                           class="date-input"
+                           value="2026-04-10"
+                           onchange="saveDate(this)"
+                           style="width: 150px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem;">
+                </span>
             </div>
         </div>
 

@@ -198,6 +198,38 @@ function saveBuild(input) {
     }
 }
 
+// Guardar versión de la app
+function saveVersion(input) {
+    localStorage.setItem('warnapp-testing-version', input.value);
+}
+
+// Cargar versión de la app
+function loadVersion() {
+    const saved = localStorage.getItem('warnapp-testing-version');
+    if (saved) {
+        const versionInput = document.getElementById('app-version-input');
+        if (versionInput) {
+            versionInput.value = saved;
+        }
+    }
+}
+
+// Guardar fecha del testing
+function saveDate(input) {
+    localStorage.setItem('warnapp-testing-date', input.value);
+}
+
+// Cargar fecha del testing
+function loadDate() {
+    const saved = localStorage.getItem('warnapp-testing-date');
+    if (saved) {
+        const dateInput = document.getElementById('test-date-input');
+        if (dateInput) {
+            dateInput.value = saved;
+        }
+    }
+}
+
 // Toggle sección expandida/colapsada
 function toggleSection(element) {
     const section = element.closest('.section');
@@ -316,8 +348,28 @@ function resetTesting() {
 
 // Exportar resultados
 function exportResults() {
+    const versionInput = document.getElementById('app-version-input');
+    const appVersion = versionInput ? versionInput.value : '1.6.0+100';
+    
+    const dateInput = document.getElementById('test-date-input');
+    let testDate = new Date().toLocaleDateString('es-ES', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    if (dateInput && dateInput.value) {
+        const selectedDate = new Date(dateInput.value + 'T00:00:00');
+        testDate = selectedDate.toLocaleDateString('es-ES', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+    }
+    
     let markdown = '# WarnApp - Resultados de Testing\n\n';
-    markdown += `**Fecha:** ${new Date().toLocaleString('es-ES')}\n\n`;
+    markdown += `**Versión:** ${appVersion}\n`;
+    markdown += `**Fecha:** ${testDate}\n\n`;
     
     const stats = {
         total: parseInt(document.getElementById('totalTests').textContent),
@@ -401,6 +453,8 @@ function downloadReport() {
 // Inicializar aplicación
 document.addEventListener('DOMContentLoaded', () => {
     loadState();
+    loadVersion(); // Cargar versión guardada
+    loadDate(); // Cargar fecha guardada
     renderSections();
     updateStats();
     

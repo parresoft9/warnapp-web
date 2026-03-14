@@ -94,9 +94,10 @@ function renderSections() {
         const header = document.createElement('div');
         header.className = 'section-header';
         header.innerHTML = `
-            <span>${sectionName}</span>
-            <button class="toggle-btn" onclick="toggleSection(this)">▼</button>
+            <span class="section-title-text">${sectionName}</span>
+            <button class="toggle-btn" onclick="event.stopPropagation(); toggleSection(this)">▼</button>
         `;
+        header.onclick = function() { toggleSection(this); };
         sectionDiv.appendChild(header);
 
         // Contenido de sección
@@ -198,9 +199,10 @@ function saveBuild(input) {
 }
 
 // Toggle sección expandida/colapsada
-function toggleSection(button) {
-    const section = button.closest('.section');
+function toggleSection(element) {
+    const section = element.closest('.section');
     const content = section.querySelector('.section-content');
+    const button = section.querySelector('.toggle-btn');
     const isExpanded = content.style.display !== 'none';
     
     content.style.display = isExpanded ? 'none' : 'block';

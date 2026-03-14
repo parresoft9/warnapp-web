@@ -129,13 +129,11 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "2.3.1", desc: "Deslizar vehículo hacia la izquierda/derecha", obs: "" },
-                { id: "2.3.2", desc: "Verificar botón de eliminar visible", obs: "" },
-                { id: "2.3.3", desc: "Tap en botón de eliminar", obs: "" },
-                { id: "2.3.4", desc: "Verificar diálogo de confirmación", obs: "¿Pide confirmación?" },
-                { id: "2.3.5", desc: "Confirmar eliminación", obs: "" },
-                { id: "2.3.6", desc: "Verificar que el vehículo desaparece de la lista", obs: "" },
-                { id: "2.3.7", desc: "Verificar que el slot se libera", obs: "De 0 a 1 disponible" }
+                { id: "2.3.1", desc: "Deslizar vehículo hacia la izquierda", obs: "" },
+                { id: "2.3.2", desc: "Verificar diálogo de confirmación", obs: "¿Pide confirmación?" },
+                { id: "2.3.3", desc: "Confirmar eliminación", obs: "" },
+                { id: "2.3.4", desc: "Verificar que el vehículo desaparece de la lista", obs: "" },
+                { id: "2.3.5", desc: "Verificar que el slot se libera", obs: "De 0 a 1 disponible" }
             ]
         },
         "2.4 Ver Alertas de un Vehículo": {
@@ -163,13 +161,14 @@ const testData = {
                 { id: "3.1.5", desc: "Ingresar matrícula (ej: XYZ5678)", obs: "" },
                 { id: "3.1.6", desc: "Ingresar mensaje descriptivo", obs: "" },
                 { id: "3.1.7", desc: "Tap en botón de cámara 📷", obs: "" },
-                { id: "3.1.8", desc: "Seleccionar 'Tomar foto'", obs: "" },
-                { id: "3.1.9", desc: "Tomar foto", obs: "" },
-                { id: "3.1.10", desc: "Confirmar foto", obs: "" },
+                { id: "3.1.8", desc: "Verificar solicitud de permisos", obs: "" },
+                { id: "3.1.9", desc: "Conceder permisos", obs: "" },
+                { id: "3.1.10", desc: "Seleccionar 'Tomar foto'", obs: "" },
+                { id: "3.1.11", desc: "Tomar foto", obs: "" },
                 { id: "3.1.11", desc: "Verificar preview de foto añadida", obs: "" },
-                { id: "3.1.12", desc: "Tap en 'Publicar' o 'Enviar'", obs: "" },
-                { id: "3.1.13", desc: "Verificar diálogo de progreso de subida", obs: "Barra de progreso" },
-                { id: "3.1.14", desc: "Verificar mensaje de éxito", obs: "" },
+                { id: "3.1.13", desc: "Tap en ''Enviar'", obs: "" },
+                { id: "3.1.14", desc: "Verificar diálogo de progreso de subida", obs: "Barra de progreso" },
+                { id: "3.1.15", desc: "Verificar mensaje de éxito", obs: "" },
                 { id: "3.1.15", desc: "Verificar que formulario se limpia", obs: "" }
             ]
         },
@@ -179,14 +178,16 @@ const testData = {
             tests: [
                 { id: "3.2.1", desc: "Navegar a pestaña 'Colaborar'", obs: "" },
                 { id: "3.2.2", desc: "Ingresar matrícula y mensaje", obs: "" },
-                { id: "3.2.3", desc: "Tap en botón de cámara 📷", obs: "" },
-                { id: "3.2.4", desc: "Seleccionar 'Grabar video'", obs: "" },
-                { id: "3.2.5", desc: "Grabar video corto (10-15 segundos)", obs: "" },
-                { id: "3.2.6", desc: "Confirmar video", obs: "" },
-                { id: "3.2.7", desc: "Verificar preview de video añadido", obs: "Thumbnail" },
-                { id: "3.2.8", desc: "Tap en 'Publicar'", obs: "" },
-                { id: "3.2.9", desc: "Verificar progreso de subida", obs: "Tarda más que foto" },
-                { id: "3.2.10", desc: "Verificar mensaje de éxito", obs: "" }
+                { id: "3.2.3", desc: "Tap en botón de video(ROJO) 📷", obs: "" },
+                { id: "3.2.4", desc: "Verificar solicitud de permisos", obs: "" },
+                { id: "3.2.5", desc: "Conceder permisos", obs: "" },
+                { id: "3.2.6", desc: "Seleccionar 'Grabar video'", obs: "" },
+                { id: "3.2.7", desc: "Grabar video corto (10-15 segundos)", obs: "" },
+                { id: "3.2.8", desc: "Confirmar video", obs: "" },
+                { id: "3.2.9", desc: "Verificar preview de video añadido", obs: "Thumbnail" },
+                { id: "3.2.10", desc: "Tap en 'Use Video'", obs: "" },
+                { id: "3.2.11", desc: "Verificar progreso de subida", obs: "Tarda más que foto" },
+                { id: "3.2.12", desc: "Verificar mensaje de éxito", obs: "" }
             ]
         },
         "3.3 Validaciones de Alerta": {
@@ -196,8 +197,9 @@ const testData = {
                 { id: "3.3.1", desc: "Intentar publicar sin matrícula", obs: "¿Botón deshabilitado?" },
                 { id: "3.3.2", desc: "Intentar publicar sin mensaje", obs: "¿Permite o requiere?" },
                 { id: "3.3.3", desc: "Intentar publicar sin fotos/videos", obs: "¿Permite?" },
-                { id: "3.3.4", desc: "Intentar añadir más de 10 archivos", obs: "¿Límite?" },
-                { id: "3.3.5", desc: "Intentar publicar sin permisos de ubicación", obs: "¿Muestra error?" }
+                { id: "3.3.4", desc: "Verificar necesidad de matricula y (mensaje o multimedia)", obs: "¿Permite?" },
+                { id: "3.3.5", desc: "Intentar añadir más de 5 archivos", obs: "¿Límite?" },
+                { id: "3.3.6", desc: "Intentar publicar sin permisos de ubicación", obs: "¿Muestra error?" }
             ]
         }
     },
@@ -230,7 +232,9 @@ const testData = {
                 { id: "4.2.7", desc: "Tap en video para reproducir", obs: "" },
                 { id: "4.2.8", desc: "Verificar reproducción correcta", obs: "Sonido incluido" },
                 { id: "4.2.9", desc: "Pausar/reanudar video", obs: "" },
-                { id: "4.2.10", desc: "Abrir video en pantalla completa", obs: "" }
+                { id: "4.2.10", desc: "Abrir video en pantalla completa", obs: "" },
+                { id: "4.2.11", desc: "Verificar descarga fotos y guardado en album", obs: "" },
+                { id: "4.2.12", desc: "Verificar descarga de videos y guardado en galeria/album", obs: "" }
             ]
         },
         "4.3 Descargar Multimedia (iOS)": {
@@ -241,11 +245,8 @@ const testData = {
                 { id: "4.3.2", desc: "Long press en foto", obs: "" },
                 { id: "4.3.3", desc: "Verificar opción 'Guardar imagen'", obs: "" },
                 { id: "4.3.4", desc: "Tap en 'Guardar imagen'", obs: "" },
-                { id: "4.3.5", desc: "Verificar solicitud de permisos", obs: "" },
-                { id: "4.3.6", desc: "Conceder permisos", obs: "" },
-                { id: "4.3.7", desc: "Verificar mensaje de confirmación", obs: "" },
-                { id: "4.3.8", desc: "Abrir app Fotos de iOS", obs: "" },
-                { id: "4.3.9", desc: "Verificar que la foto se guardó", obs: "" }
+                { id: "4.3.5", desc: "Abrir app Fotos de iOS", obs: "" },
+                { id: "4.3.6", desc: "Verificar que la foto se guardó", obs: "" }
             ]
         },
         "4.4 Valorar Alerta": {
@@ -295,10 +296,7 @@ const testData = {
             tests: [
                 { id: "5.2.1", desc: "En 'Reputación', scroll a lista de alertas", obs: "" },
                 { id: "5.2.2", desc: "Verificar información visible (matrícula, fecha, valoración)", obs: "" },
-                { id: "5.2.3", desc: "Verificar preview de fotos/videos", obs: "Grid de imágenes" },
-                { id: "5.2.4", desc: "Tap en una foto", obs: "" },
-                { id: "5.2.5", desc: "Verificar vista ampliada", obs: "" },
-                { id: "5.2.6", desc: "Cerrar vista ampliada", obs: "" }
+                { id: "5.2.3", desc: "Verificar preview de fotos/videos", obs: "Grid de imágenes" }
             ]
         },
         "5.3 Actualización de Reputación": {
@@ -489,20 +487,16 @@ const testData = {
         }
     },
     "📍 10. PERMISOS Y UBICACIÓN": {
-        "10.1 Permisos de Ubicación (iOS)": {
+        "10.1 Permisos de Ubicación": {
             build: "",
-            ambiente: "iOS",
+            ambiente: "iOS / Android",
             tests: [
-                { id: "10.1.1", desc: "Primera apertura de app", obs: "" },
-                { id: "10.1.2", desc: "Navegar a 'Colaborar'", obs: "" },
-                { id: "10.1.3", desc: "Verificar solicitud de permisos de ubicación", obs: "" },
-                { id: "10.1.4", desc: "Seleccionar 'Permitir mientras uso la app'", obs: "" },
-                { id: "10.1.5", desc: "Verificar que el mapa muestra ubicación actual", obs: "Punto azul" },
-                { id: "10.1.6", desc: "Ir a Ajustes > WarnApp > Ubicación", obs: "" },
-                { id: "10.1.7", desc: "Cambiar a 'Nunca'", obs: "" },
-                { id: "10.1.8", desc: "Volver a la app", obs: "" },
-                { id: "10.1.9", desc: "Intentar crear alerta", obs: "" },
-                { id: "10.1.10", desc: "Verificar mensaje de error", obs: "" }
+                { id: "10.1.1", desc: "Primera apertura de app, Verificar solicitud de permisos de ubicación después del tutorial", obs: "" },
+                { id: "10.1.2", desc: "Seleccionar 'Permitir mientras uso la app'", obs: "" },
+                { id: "10.1.3", desc: "Verificar que el mapa muestra ubicación actual", obs: "Punto azul" },
+                { id: "10.1.4", desc: "Ir a Ajustes > WarnApp > Ubicación  Cambiar a 'Nunca' " , obs: "" },
+                { id: "10.1.5", desc: "Volver a la app. Verificar pantalla Localizacion necesaria", obs: "" },
+                { id: "10.1.6", desc: "No deja crear alerta", obs: "" }
             ]
         },
         "10.2 Permisos de Cámara": {

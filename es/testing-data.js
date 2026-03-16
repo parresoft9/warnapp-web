@@ -254,13 +254,13 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "4.4.1", desc: "Abrir detalle de alerta NO valorada", obs: "" },
-                { id: "4.4.2", desc: "Scroll hasta sección de valoración", obs: "" },
+                { id: "4.4.2", desc: "Tap en estrella para valorar", obs: "" },
                 { id: "4.4.3", desc: "Verificar estrellas visibles", obs: "" },
                 { id: "4.4.4", desc: "Tap en 5 estrellas", obs: "" },
                 { id: "4.4.5", desc: "Verificar mensaje de agradecimiento", obs: "Animación" },
                 { id: "4.4.6", desc: "Cerrar y volver a abrir la alerta", obs: "" },
                 { id: "4.4.7", desc: "Verificar que la valoración se mantiene", obs: "" },
-                { id: "4.4.8", desc: "Verificar que no se pode volver a valorar", obs: "Estrellas deshabilitadas" }
+                { id: "4.4.8", desc: "Verificar que no se puede volver a valorar", obs: "Estrellas deshabilitadas" }
             ]
         },
         "4.5 Reportar Alerta": {
@@ -268,12 +268,13 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "4.5.1", desc: "Abrir detalle de alerta", obs: "" },
-                { id: "4.5.2", desc: "Tap en botón 'Reportar' o ⚠️", obs: "" },
+                { id: "4.5.2", desc: "Tap en botón 'Denunciar' o ⚠️", obs: "" },
                 { id: "4.5.3", desc: "Verificar diálogo de motivos", obs: "" },
                 { id: "4.5.4", desc: "Seleccionar 'Información falsa'", obs: "" },
                 { id: "4.5.5", desc: "Ingresar comentario opcional", obs: "" },
                 { id: "4.5.6", desc: "Tap en 'Enviar reporte'", obs: "" },
-                { id: "4.5.7", desc: "Verificar mensaje de confirmación", obs: "" }
+                { id: "4.5.7", desc: "Verificar mensaje de confirmación", obs: "" },
+                { id: "4.5.8", desc: "Verificar animación DENUNCIADO en oblicuo", obs: "" }
             ]
         }
     },

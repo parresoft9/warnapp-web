@@ -103,12 +103,12 @@ const testData = {
                 { id: "2.1.1", desc: "Navegar a pestaña 'Mis Vehículos'", obs: "" },
                 { id: "2.1.2", desc: "Tap en botón '+' o 'Añadir vehículo'", obs: "" },
                 { id: "2.1.3", desc: "Verificar apertura de modal", obs: "" },
-                { id: "2.1.4", desc: "Verificar mensaje 'Tienes 1 slot disponible'", obs: "" },
+                { id: "2.1.4", desc: "Verificar mensaje 'Plazas disponibles en tu garage: 1 de 1'", obs: "" },
                 { id: "2.1.5", desc: "Ingresar matrícula válida (ej: ABC1234)", obs: "" },
                 { id: "2.1.6", desc: "Seleccionar tipo de vehículo (Coche/Furgoneta/Moto/Camión)", obs: "" },
                 { id: "2.1.7", desc: "Seleccionar uso (Personal/Empresa/Familiar/Alquiler)", obs: "" },
                 { id: "2.1.8", desc: "(Opcional) Ingresar nombre personalizado", obs: "" },
-                { id: "2.1.9", desc: "Tap en 'Añadir'", obs: "" },
+                { id: "2.1.9", desc: "Tap en 'Añadir vehículo'", obs: "" },
                 { id: "2.1.10", desc: "Verificar animación de confirmación (checkmark)", obs: "" },
                 { id: "2.1.11", desc: "Verificar que el vehículo aparece en la lista", obs: "" },
                 { id: "2.1.12", desc: "Verificar que muestra '0 slots disponibles'", obs: "Ya usó su slot gratuito" }
@@ -122,7 +122,7 @@ const testData = {
                 { id: "2.2.2", desc: "Intentar añadir matrícula muy corta (1-2 caracteres)", obs: "¿Muestra error?" },
                 { id: "2.2.3", desc: "Intentar añadir matrícula muy larga (20+ caracteres)", obs: "¿Limita o rechaza?" },
                 { id: "2.2.4", desc: "Intentar añadir matrícula con caracteres especiales", obs: "¿Acepta o rechaza?" },
-                { id: "2.2.5", desc: "Intentar añadir matrícula duplicada", obs: "¿Muestra error?" }
+                { id: "2.2.5", desc: "Intentar añadir matrícula duplicada", obs: "¿Muestra error?, para ello necesario comprar una plaza" }
             ]
         },
         "2.3 Eliminar Vehículo": {
@@ -133,7 +133,7 @@ const testData = {
                 { id: "2.3.2", desc: "Verificar diálogo de confirmación", obs: "¿Pide confirmación?" },
                 { id: "2.3.3", desc: "Confirmar eliminación", obs: "" },
                 { id: "2.3.4", desc: "Verificar que el vehículo desaparece de la lista", obs: "" },
-                { id: "2.3.5", desc: "Verificar que el slot se libera", obs: "De 0 a 1 disponible" }
+                { id: "2.3.5", desc: "Verificar que la plaza se libera", obs: "De 0 a 1 disponible" }
             ]
         },
         "2.4 Ver Alertas de un Vehículo": {
@@ -154,10 +154,10 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "3.1.1", desc: "Navegar a pestaña 'Colaborar'", obs: "" },
+                { id: "3.1.1", desc: "Navegar a pestaña 'Colabora'", obs: "" },
                 { id: "3.1.2", desc: "Verificar mapa visible", obs: "" },
                 { id: "3.1.3", desc: "Verificar ubicación actual marcada", obs: "Punto azul" },
-                { id: "3.1.4", desc: "Verificar formulario de alerta visible", obs: "" },
+                { id: "3.1.4", desc: "Tap en 'AVISO' y verificar formulario de alerta visible", obs: "" },
                 { id: "3.1.5", desc: "Ingresar matrícula (ej: XYZ5678)", obs: "" },
                 { id: "3.1.6", desc: "Ingresar mensaje descriptivo", obs: "" },
                 { id: "3.1.7", desc: "Tap en botón de cámara 📷", obs: "" },
@@ -169,14 +169,14 @@ const testData = {
                 { id: "3.1.13", desc: "Tap en ''Enviar'", obs: "" },
                 { id: "3.1.14", desc: "Verificar diálogo de progreso de subida", obs: "Barra de progreso" },
                 { id: "3.1.15", desc: "Verificar mensaje de éxito", obs: "" },
-                { id: "3.1.15", desc: "Verificar que formulario se limpia", obs: "" }
+                { id: "3.1.15", desc: "Verificar que formulario se oculta y limpia", obs: "" }
             ]
         },
         "3.2 Crear Alerta con Video": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "3.2.1", desc: "Navegar a pestaña 'Colaborar'", obs: "" },
+                { id: "3.2.1", desc: "Navegar a pestaña 'Colabora'", obs: "" },
                 { id: "3.2.2", desc: "Ingresar matrícula y mensaje", obs: "" },
                 { id: "3.2.3", desc: "Tap en botón de video(ROJO) 📷", obs: "" },
                 { id: "3.2.4", desc: "Verificar solicitud de permisos", obs: "" },

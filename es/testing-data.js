@@ -531,15 +531,15 @@ const testData = {
                 { id: "12.1.12", desc: "Cerrar sesión", obs: "" }
             ]
         },
-        "12.2 Slots Agotados": {
+        "12.2 Plazas Agotadas": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "12.2.1", desc: "Añadir vehículos hasta llenar todos los slots", obs: "" },
-                { id: "12.2.2", desc: "Verificar mensaje '0 slots disponibles'", obs: "" },
+                { id: "12.2.1", desc: "Añadir vehículos hasta llenar todas las plazas", obs: "" },
+                { id: "12.2.2", desc: "Verificar mensaje '0 plazas disponibles'", obs: "" },
                 { id: "12.2.3", desc: "Intentar añadir otro vehículo", obs: "" },
-                { id: "12.2.4", desc: "Verificar diálogo 'Sin slots' con opción de compra", obs: "" },
-                { id: "12.2.5", desc: "Tap en 'Comprar slots'", obs: "" },
+                { id: "12.2.4", desc: "Verificar diálogo 'Sin plazas' con opción de compra", obs: "" },
+                { id: "12.2.5", desc: "Tap en 'Comprar '", obs: "" },
                 { id: "12.2.6", desc: "Verificar navegación a pantalla de compras", obs: "" }
             ]
         },
@@ -562,14 +562,7 @@ const testData = {
             build: "",
             ambiente: "iOS",
             tests: [
-                { id: "13.1.1", desc: "Configurar iPhone en modo claro", obs: "" },
-                { id: "13.1.2", desc: "Abrir app", obs: "" },
-                { id: "13.1.3", desc: "Verificar tema claro correcto", obs: "Colores, contrastes" },
-                { id: "13.1.4", desc: "Navegar por todas las pantallas", obs: "" },
-                { id: "13.1.5", desc: "Configurar iPhone en modo oscuro", obs: "" },
-                { id: "13.1.6", desc: "Volver a la app", obs: "" },
-                { id: "13.1.7", desc: "Verificar tema oscuro correcto", obs: "" },
-                { id: "13.1.8", desc: "Navegar por todas las pantallas", obs: "" }
+                { id: "13.1.1", desc: "Configurar iPhone en modo claro/oscuro", obs: "Se debe ver igual en un modod u otro" }
             ]
         },
         "13.2 Rotación de Pantalla": {
@@ -577,11 +570,11 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "13.2.1", desc: "En 'Colaborar', rotar a horizontal", obs: "" },
-                { id: "13.2.2", desc: "Verificar que el mapa se adapta", obs: "" },
+                { id: "13.2.2", desc: "Verificar que la pantalla no rota", obs: "" },
                 { id: "13.2.3", desc: "En 'Mis Vehículos', rotar", obs: "" },
-                { id: "13.2.4", desc: "Verificar lista en horizontal", obs: "" },
+                { id: "13.2.4", desc: "Verificar lista no rota", obs: "" },
                 { id: "13.2.5", desc: "Abrir detalle de alerta y rotar", obs: "" },
-                { id: "13.2.6", desc: "Verificar que todo es legible", obs: "" }
+                { id: "13.2.6", desc: "Verificar que todo sigue sin rotar", obs: "" }
             ]
         }
     },
@@ -591,7 +584,7 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "14.1.1", desc: "Medir tiempo de splash screen", obs: "< 3s" },
-                { id: "14.1.2", desc: "Medir tiempo de login a home", obs: "< 2s" },
+                { id: "14.1.2", desc: "Medir tiempo de login a Colabora", obs: "< 2s" },
                 { id: "14.1.3", desc: "Medir carga de lista de vehículos", obs: "< 1s" },
                 { id: "14.1.4", desc: "Medir tiempo de apertura de mapa", obs: "< 2s" }
             ]

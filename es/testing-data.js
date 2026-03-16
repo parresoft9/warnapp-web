@@ -394,7 +394,7 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "8.1.1", desc: "Revisar email de recordatorio de renovación", obs: "" },
+                { id: "8.1.1", desc: "Revisar email de recordatorio de renovación", obs: "Necesario modificar fecha de alta de las plazas. No reproducible" },
                 { id: "8.1.2", desc: "Verificar enlace en el email", obs: "" },
                 { id: "8.1.3", desc: "Con la app CERRADA, tap en enlace del email", obs: "" },
                 { id: "8.1.4", desc: "Verificar que la app se abre automáticamente", obs: "Universal Link" },
@@ -403,29 +403,17 @@ const testData = {
                 { id: "8.1.7", desc: "Verificar navegación correcta", obs: "" }
             ]
         },
-        "8.2 Deep Link de Registro": {
+        "8.2 Botón Invitar Amigos": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "8.2.1", desc: "Abrir enlace de registro en navegador", obs: "" },
-                { id: "8.2.2", desc: "Tap en botón 'Descargar' o 'Abrir app'", obs: "" },
-                { id: "8.2.3", desc: "Si está instalada, verificar que se abre", obs: "" },
-                { id: "8.2.4", desc: "Verificar navegación correcta", obs: "" },
-                { id: "8.2.5", desc: "Si NO está instalada, verificar redirección a store", obs: "" }
-            ]
-        },
-        "8.3 Botón Invitar Amigos": {
-            build: "",
-            ambiente: "iOS / Android",
-            tests: [
-                { id: "8.3.1", desc: "Ir a pantalla 'Cuenta'", obs: "" },
-                { id: "8.3.2", desc: "Localizar botón 'Invitar amigos'", obs: "" },
-                { id: "8.3.3", desc: "Tap en 'Invitar amigos'", obs: "" },
-                { id: "8.3.4", desc: "Verificar share sheet nativo", obs: "" },
-                { id: "8.3.5", desc: "Verificar contenido del mensaje", obs: "Texto + URL" },
-                { id: "8.3.6", desc: "Verificar URL según idioma", obs: "/es/, /en/, /de/, /fr/" },
-                { id: "8.3.7", desc: "Compartir por WhatsApp", obs: "" },
-                { id: "8.3.8", desc: "Verificar enlace compartido correctamente", obs: "" }
+                { id: "8.2.1", desc: "Ir a pantalla 'Cuenta'", obs: "" },
+                { id: "8.2.2", desc: "Localizar botón 'Invitar amigos'", obs: "" },
+                { id: "8.2.3", desc: "Tap en 'Invitar amigos'", obs: "" },
+                { id: "8.2.4", desc: "Verificar share sheet nativo", obs: "" },
+                { id: "8.2.5", desc: "Verificar contenido del mensaje", obs: "Texto + URL" },
+                { id: "8.2.5", desc: "Compartir por WhatsApp", obs: "" },
+                { id: "8.2.6", desc: "Verificar enlace compartido correctamente", obs: "" }
             ]
         }
     },

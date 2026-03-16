@@ -6,14 +6,14 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "1.1.1", desc: "Abrir app por primera vez", obs: "¿Muestra tutorial?" },
-                { id: "1.1.2", desc: "Tap en 'Registrarse con Email'", obs: "" },
+                { id: "1.1.2", desc: "Tap en 'Continuar con correo electrónico'", obs: "" },
                 { id: "1.1.3", desc: "Ingresar nombre válido", obs: "" },
-                { id: "1.1.4", desc: "Ingresar apellido válido", obs: "" },
+                { id: "1.1.4", desc: "Ingresar apellidos válidos", obs: "" },
                 { id: "1.1.5", desc: "Ingresar email válido", obs: "Validación en tiempo real" },
                 { id: "1.1.6", desc: "Ingresar email inválido (sin @)", obs: "¿Muestra error?" },
                 { id: "1.1.7", desc: "Ingresar contraseña válida (8+ caracteres, mayúscula, número)", obs: "Validación en tiempo real" },
                 { id: "1.1.8", desc: "Ingresar contraseña débil", obs: "¿Muestra requisitos?" },
-                { id: "1.1.9", desc: "Tap en 'Registrarse' con datos válidos", obs: "" },
+                { id: "1.1.9", desc: "Tap en 'Crear cuenta' con datos válidos", obs: "" },
                 { id: "1.1.10", desc: "Verificar email enviado a correo", obs: "Revisar bandeja entrada" },
                 { id: "1.1.11", desc: "Clic en enlace de verificación del email", obs: "" },
                 { id: "1.1.12", desc: "Volver a la app e iniciar sesión", obs: "" },
@@ -23,14 +23,14 @@ const testData = {
                 { id: "1.1.16", desc: "Leer Política de Privacidad", obs: "¿Abre?" },
                 { id: "1.1.17", desc: "Marcar las 3 casillas de aceptación", obs: "" },
                 { id: "1.1.18", desc: "Tap en 'Aceptar y Continuar'", obs: "" },
-                { id: "1.1.19", desc: "Verificar navegación a Home", obs: "" }
+                { id: "1.1.19", desc: "Verificar navegación a pestaña Colabora", obs: "" }
             ]
         },
         "1.2 Login con Email": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "1.2.1", desc: "Tap en 'Iniciar sesión con Email'", obs: "" },
+                { id: "1.2.1", desc: "Tap en 'Iniciar sesión'", obs: "" },
                 { id: "1.2.2", desc: "Ingresar email registrado", obs: "" },
                 { id: "1.2.3", desc: "Ingresar contraseña correcta", obs: "" },
                 { id: "1.2.4", desc: "Tap en 'Continuar'", obs: "" },
@@ -44,49 +44,49 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "1.3.1", desc: "Tap en botón 'Google'", obs: "" },
+                { id: "1.3.1", desc: "Tap en botón 'Continuar con Google'", obs: "" },
                 { id: "1.3.2", desc: "Verificar apertura de pantalla de Google", obs: "" },
                 { id: "1.3.3", desc: "Seleccionar cuenta de Google", obs: "" },
                 { id: "1.3.4", desc: "Autorizar acceso", obs: "" },
                 { id: "1.3.5", desc: "Verificar creación de cuenta o login", obs: "" },
                 { id: "1.3.6", desc: "Si es primera vez: aceptar políticas", obs: "" },
-                { id: "1.3.7", desc: "Verificar navegación a Home", obs: "" }
+                { id: "1.3.7", desc: "Verificar navegación a pestaña Colabora", obs: "" }
             ]
         },
         "1.4 Login con Apple (Solo iOS)": {
             build: "",
             ambiente: "iOS",
             tests: [
-                { id: "1.4.1", desc: "Tap en botón 'Apple'", obs: "" },
+                { id: "1.4.1", desc: "Tap en botón 'Continuar con Apple'", obs: "" },
                 { id: "1.4.2", desc: "Verificar apertura de pantalla de Apple ID", obs: "" },
                 { id: "1.4.3", desc: "Autenticar con Face ID/Touch ID", obs: "" },
                 { id: "1.4.4", desc: "Seleccionar 'Compartir mi email' o 'Ocultar mi email'", obs: "" },
                 { id: "1.4.5", desc: "Verificar creación de cuenta o login", obs: "" },
                 { id: "1.4.6", desc: "Si es primera vez: aceptar políticas", obs: "" },
-                { id: "1.4.7", desc: "Verificar navegación a Home", obs: "" }
+                { id: "1.4.7", desc: "Verificar navegación a pestaña Colabora", obs: "" }
             ]
         },
         "1.5 Login con Twitter": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "1.5.1", desc: "Tap en botón 'Twitter'", obs: "" },
+                { id: "1.5.1", desc: "Tap en botón 'Continuar con Twitter'", obs: "" },
                 { id: "1.5.2", desc: "Verificar apertura de navegador/pantalla de Twitter", obs: "" },
                 { id: "1.5.3", desc: "Ingresar credenciales de Twitter", obs: "" },
                 { id: "1.5.4", desc: "Autorizar acceso a la app", obs: "" },
                 { id: "1.5.5", desc: "Verificar creación de cuenta o login", obs: "" },
                 { id: "1.5.6", desc: "Si es primera vez: aceptar políticas", obs: "" },
-                { id: "1.5.7", desc: "Verificar navegación a Home", obs: "" }
+                { id: "1.5.7", desc: "Verificar navegación a pestaña Colabora", obs: "" }
             ]
         },
         "1.6 Recuperación de Contraseña": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "1.6.1", desc: "En pantalla de login, tap '¿Olvidaste tu contraseña?'", obs: "" },
+                { id: "1.6.1", desc: "En pantalla de login con Email, tap '¿Has olvidado tu contraseña?'", obs: "" },
                 { id: "1.6.2", desc: "Ingresar email registrado", obs: "" },
-                { id: "1.6.3", desc: "Tap en 'Enviar enlace de recuperación'", obs: "" },
-                { id: "1.6.4", desc: "Verificar mensaje de confirmación", obs: "" },
+                { id: "1.6.3", desc: "Tap en 'Restablecer contraseña'", obs: "" },
+                { id: "1.6.4", desc: "Verificar mensaje de confirmación", obs: "¿Te llega a Spam o Bandeja principal? - reporta el contenido por favor" },
                 { id: "1.6.5", desc: "Revisar bandeja de correo", obs: "" },
                 { id: "1.6.6", desc: "Clic en enlace de recuperación", obs: "" },
                 { id: "1.6.7", desc: "Ingresar nueva contraseña", obs: "" },

@@ -603,10 +603,8 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "15.1.1", desc: "Las contraseñas NO son visibles en logs", obs: "" },
-                { id: "15.1.2", desc: "Los tokens NO son visibles en logs", obs: "" },
-                { id: "15.1.3", desc: "La sesión expira tras inactividad", obs: "" },
-                { id: "15.1.4", desc: "NO se guardan contraseñas en texto plano", obs: "" }
+                { id: "15.1.1", desc: "La sesión expira tras inactividad", obs: "Probad durante varios dias, si te echa de la sesión" },
+                { id: "15.1.2", desc: "Multisesión", obs: "Si dispones de otro dispositivo, iniciar sesión en otro dispositivo con la misma cuenta debe exharte del dispositivo incial" }
             ]
         }
     }

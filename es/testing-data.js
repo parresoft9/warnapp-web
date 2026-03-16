@@ -285,9 +285,8 @@ const testData = {
             tests: [
                 { id: "5.1.1", desc: "Navegar a pestaña 'Reputación'", obs: "" },
                 { id: "5.1.2", desc: "Verificar puntuación total visible", obs: "Número grande" },
-                { id: "5.1.3", desc: "Verificar icono/nivel de reputación", obs: "Bronce/Plata/Oro" },
-                { id: "5.1.4", desc: "Verificar estadísticas (alertas creadas, valoración media)", obs: "" },
-                { id: "5.1.5", desc: "Scroll hacia abajo", obs: "" },
+                { id: "5.1.3", desc: "Verificar mensaje header and footer", obs: "Cuadro amarillo/Cuadro rojo" },
+                { id: "5.1.4", desc: "Verificar estadísticas (alertas creadas/enviadas,, alertas vistas, valoración media)", obs: "" },
                 { id: "5.1.6", desc: "Verificar lista de alertas propias", obs: "" }
             ]
         },
@@ -297,7 +296,7 @@ const testData = {
             tests: [
                 { id: "5.2.1", desc: "En 'Reputación', scroll a lista de alertas", obs: "" },
                 { id: "5.2.2", desc: "Verificar información visible (matrícula, fecha, valoración)", obs: "" },
-                { id: "5.2.3", desc: "Verificar preview de fotos/videos", obs: "Grid de imágenes" }
+                { id: "5.2.3", desc: "Verificar preview de fotos/videos", obs: "Grid de imágenes, no se pueden hacer zoom ni descargar" }
             ]
         },
         "5.3 Actualización de Reputación": {

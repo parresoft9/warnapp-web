@@ -1,0 +1,66 @@
+name: 📊 Update Social Media Stats
+
+on:
+  schedule:
+    # Ejecutar cada 24 horas a las 2:00 AM UTC (3:00 AM en España)
+    - cron: '0 2 * * *'
+  
+  # Permitir ejecución manual desde GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Necesario para hacer push
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: 📦 Install dependencies
+        run: npm install puppeteer
+      
+      - name: 🔍 Run social stats scraper
+        run: node scrape-social-stats.js
+        continue-on-error: true  # Si el scraping falla, no rompe el workflow
+      
+      - name: 📊 Check if stats changed
+        id: check_changes
+        run: |
+          if git diff --quiet social-stats.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes detected in social-stats.json"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ Changes detected in social-stats.json"
+          fi
+      
+      - name: 💾 Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions Bot"
+          git add social-stats.json
+          git commit -m "📊 Auto-update social media stats [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 📝 Summary
+        run: |
+          echo "## 📊 Social Stats Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "✅ Stats successfully updated and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No changes detected (stats unchanged)" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Next execution:** Tomorrow at 2:00 AM UTC" >> $GITHUB_STEP_SUMMARY

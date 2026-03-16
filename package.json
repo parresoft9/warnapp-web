@@ -1,0 +1,16 @@
+{
+  "name": "warnapp-landing",
+  "version": "1.0.0",
+  "description": "WarnApp Landing Page with auto-updating social media stats",
+  "scripts": {
+    "update-stats": "node update-social-stats.js",
+    "scrape-stats": "node scrape-social-stats.js"
+  },
+  "keywords": ["warnapp", "landing", "social-stats"],
+  "author": "WarnApp Team",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}

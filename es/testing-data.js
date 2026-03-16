@@ -355,10 +355,10 @@ const testData = {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "7.1.1", desc: "Navegar a 'Mis Vehículos'", obs: "" },
-                { id: "7.1.2", desc: "Tap en botón 'Comprar slots'", obs: "" },
+                { id: "7.1.1", desc: "Navegar a 'Mis Vehículos'", obs: "Si tienes todas las plazas ocupadas, aparece el botón 'Comprar'" },
+                { id: "7.1.2", desc: "Tap en botón 'Comprar'", obs: "" },
                 { id: "7.1.3", desc: "Verificar diálogo de productos", obs: "" },
-                { id: "7.1.4", desc: "Verificar productos listados (1, 3, 5, 10 slots)", obs: "" },
+                { id: "7.1.4", desc: "Verificar productos listados (1, 3 plazas)", obs: "2 tipos de productos" },
                 { id: "7.1.5", desc: "Verificar precios en moneda local", obs: "" },
                 { id: "7.1.6", desc: "Cerrar diálogo", obs: "" }
             ]
@@ -368,13 +368,12 @@ const testData = {
             ambiente: "iOS",
             tests: [
                 { id: "7.2.1", desc: "Abrir diálogo de productos", obs: "" },
-                { id: "7.2.2", desc: "Tap en producto '1 slot'", obs: "" },
+                { id: "7.2.2", desc: "Tap en producto '1 plaza'", obs: "" },
                 { id: "7.2.3", desc: "Verificar confirmación de App Store", obs: "" },
-                { id: "7.2.4", desc: "Ingresar contraseña de cuenta Sandbox", obs: "" },
-                { id: "7.2.5", desc: "Confirmar compra", obs: "" },
-                { id: "7.2.6", desc: "Verificar diálogo 'Compra exitosa'", obs: "" },
-                { id: "7.2.7", desc: "Verificar que los slots aumentan", obs: "+1 slot" },
-                { id: "7.2.8", desc: "Verificar animación de confirmación", obs: "" }
+                { id: "7.2.4", desc: "Confirmar compra", obs: "" },
+                { id: "7.2.5", desc: "Verificar diálogo 'Compra exitosa'", obs: "" },
+                { id: "7.2.6", desc: "Verificar que las plazas aumentan", obs: "+1 plaza" },
+                { id: "7.2.7", desc: "Verificar animación de confirmación", obs: "" }
             ]
         },
         "7.3 Comprar Slots (Android)": {
@@ -382,25 +381,11 @@ const testData = {
             ambiente: "Android",
             tests: [
                 { id: "7.3.1", desc: "Abrir diálogo de productos", obs: "" },
-                { id: "7.3.2", desc: "Tap en producto '3 slots'", obs: "" },
+                { id: "7.3.2", desc: "Tap en producto '3 plazas'", obs: "" },
                 { id: "7.3.3", desc: "Verificar pantalla de Google Play", obs: "" },
                 { id: "7.3.4", desc: "Confirmar compra", obs: "" },
                 { id: "7.3.5", desc: "Verificar 'Compra exitosa'", obs: "" },
-                { id: "7.3.6", desc: "Verificar que los slots aumentan", obs: "+3 slots" }
-            ]
-        },
-        "7.4 Restaurar Compras": {
-            build: "",
-            ambiente: "iOS",
-            tests: [
-                { id: "7.4.1", desc: "Realizar compra de slots", obs: "Paso previo" },
-                { id: "7.4.2", desc: "Cerrar sesión", obs: "" },
-                { id: "7.4.3", desc: "Eliminar y reinstalar la app", obs: "" },
-                { id: "7.4.4", desc: "Iniciar sesión de nuevo", obs: "" },
-                { id: "7.4.5", desc: "Ir a 'Mis Vehículos'", obs: "" },
-                { id: "7.4.6", desc: "Tap en 'Restaurar compras'", obs: "" },
-                { id: "7.4.7", desc: "Verificar diálogo de progreso", obs: "" },
-                { id: "7.4.8", desc: "Verificar que los slots se restauran", obs: "" }
+                { id: "7.3.6", desc: "Verificar que las plazas aumentan", obs: "+3 plazas" }
             ]
         }
     },

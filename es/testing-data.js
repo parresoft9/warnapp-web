@@ -321,15 +321,15 @@ const testData = {
                 { id: "6.1.2", desc: "Verificar nombre de usuario visible", obs: "" },
                 { id: "6.1.3", desc: "Verificar email visible", obs: "" },
                 { id: "6.1.4", desc: "Verificar foto de perfil (si existe)", obs: "" },
-                { id: "6.1.5", desc: "Verificar información de slots", obs: "X de Y slots" },
-                { id: "6.1.6", desc: "Verificar sección de compras", obs: "" }
+                { id: "6.1.5", desc: "Verificar Miembro desde", obs: "mes desde que el usuario se registra en el sistema" },
+                { id: "6.1.6", desc: "Verificar sección de compras", obs: "Menu arriba izquierda, Comprar más" }
             ]
         },
         "6.2 Gestión de Idioma": {
             build: "",
             ambiente: "iOS / Android",
             tests: [
-                { id: "6.2.1", desc: "En 'Cuenta', buscar selector de idioma", obs: "" },
+                { id: "6.2.1", desc: "En 'Menú de Cuenta', buscar Idioma y Región", obs: "" },
                 { id: "6.2.2", desc: "Cambiar idioma a Español", obs: "" },
                 { id: "6.2.3", desc: "Verificar que toda la UI cambia", obs: "" },
                 { id: "6.2.4", desc: "Cambiar idioma a Inglés", obs: "" },
@@ -344,10 +344,9 @@ const testData = {
             tests: [
                 { id: "6.3.1", desc: "En 'Cuenta', scroll hasta el final", obs: "" },
                 { id: "6.3.2", desc: "Tap en 'Cerrar sesión'", obs: "" },
-                { id: "6.3.3", desc: "Verificar diálogo de confirmación", obs: "" },
-                { id: "6.3.4", desc: "Confirmar cierre de sesión", obs: "" },
-                { id: "6.3.5", desc: "Verificar navegación a pantalla de login", obs: "" },
-                { id: "6.3.6", desc: "Volver a iniciar sesión", obs: "" }
+                { id: "6.3.3", desc: "Verificar diálogo de confirmación/animación", obs: "" },
+                { id: "6.3.4", desc: "Verificar navegación a pantalla de login", obs: "" },
+                { id: "6.3.5", desc: "Volver a iniciar sesión", obs: "" }
             ]
         }
     },

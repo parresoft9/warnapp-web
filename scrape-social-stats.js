@@ -54,21 +54,42 @@ async function getInstagramFollowers(username, browser) {
     try {
         const page = await browser.newPage();
         
-        // Set realistic user agent
-        await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-        
-        // Navigate to profile
-        await page.goto(`https://www.instagram.com/${username}/`, {
-            waitUntil: 'networkidle2',
-            timeout: 30000
+        // Remove webdriver property to avoid bot detection
+        await page.evaluateOnNewDocument(() => {
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => false,
+            });
         });
         
-        // Wait a bit for content to load
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Set realistic headers to avoid bot detection
+        await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36');
+        await page.setExtraHTTPHeaders({
+            'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Cache-Control': 'max-age=0'
+        });
+        
+        // Set viewport
+        await page.setViewport({ width: 1920, height: 1080 });
+        
+        // Navigate to profile with longer timeout for CI
+        await page.goto(`https://www.instagram.com/${username}/`, {
+            waitUntil: 'domcontentloaded',
+            timeout: 45000
+        });
+        
+        // Wait longer for content to load in CI environments
+        await new Promise(resolve => setTimeout(resolve, 5000));
         
         // Try to extract followers count from meta tags or page content
         const followers = await page.evaluate(() => {
-            // Method 1: Try meta tags
+            // Method 1: Try meta tags (most reliable)
             const metaTag = document.querySelector('meta[property="og:description"]');
             if (metaTag) {
                 const content = metaTag.getAttribute('content');
@@ -82,14 +103,56 @@ async function getInstagramFollowers(username, browser) {
                 }
             }
             
-            // Method 2: Try to find it in the page text
-            const bodyText = document.body.innerText;
-            const matches = bodyText.match(/(\d+(?:,\d+)*)\s+followers/i);
-            if (matches) {
-                return parseInt(matches[1].replace(/,/g, ''));
+            // Method 2: Try to find text nodes with "followers"
+            const treeWalker = document.createTreeWalker(
+                document.body,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            let currentNode;
+            while (currentNode = treeWalker.nextNode()) {
+                const text = currentNode.textContent;
+                if (text && /followers/i.test(text)) {
+                    // Look for number near "followers"
+                    const match = text.match(/(\d+(?:,\d+)*(?:\.\d+)?[KMB]?)\s*followers/i);
+                    if (match) {
+                        let num = match[1].replace(/,/g, '');
+                        if (num.endsWith('K')) return Math.round(parseFloat(num) * 1000);
+                        if (num.endsWith('M')) return Math.round(parseFloat(num) * 1000000);
+                        if (num.endsWith('B')) return Math.round(parseFloat(num) * 1000000000);
+                        return parseInt(num);
+                    }
+                }
             }
             
-            // Method 3: Try JSON-LD structured data
+            // Method 3: Try common selectors
+            const selectors = [
+                'a[href*="followers"] span',
+                'span[title]',
+                'header section ul li span',
+                'header section ul li:nth-child(2) span'
+            ];
+            
+            for (const selector of selectors) {
+                const elements = document.querySelectorAll(selector);
+                for (const el of elements) {
+                    const text = el.textContent || el.getAttribute('title') || '';
+                    const match = text.match(/^(\d+(?:,\d+)*(?:\.\d+)?[KMB]?)$/);
+                    if (match) {
+                        let num = match[1].replace(/,/g, '');
+                        if (num.endsWith('K')) return Math.round(parseFloat(num) * 1000);
+                        if (num.endsWith('M')) return Math.round(parseFloat(num) * 1000000);
+                        if (num.endsWith('B')) return Math.round(parseFloat(num) * 1000000000);
+                        const parsed = parseInt(num);
+                        // Sanity check: followers should be > 100 for most accounts
+                        if (parsed > 100) return parsed;
+                    }
+                }
+            }
+            
+            // Method 4: Try JSON-LD structured data
             const scripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
             for (const script of scripts) {
                 try {
@@ -132,8 +195,13 @@ async function getTikTokFollowers(username, browser) {
     
     try {
         const page = await browser.newPage();
-        
-        await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+                // Remove webdriver property to avoid bot detection
+        await page.evaluateOnNewDocument(() => {
+            Object.defineProperty(navigator, 'webdriver', {
+                get: () => false,
+            });
+        });
+                await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
         
         await page.goto(`https://www.tiktok.com/@${username}`, {
             waitUntil: 'networkidle2',
@@ -192,7 +260,19 @@ async function getTikTokFollowers(username, browser) {
     
     const browser = await puppeteer.launch({
         headless: 'new',
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-blink-features=AutomationControlled',
+            '--disable-features=IsolateOrigins,site-per-process',
+            '--disable-web-security',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--disable-gpu',
+            '--window-size=1920,1080'
+        ]
     });
     
     try {

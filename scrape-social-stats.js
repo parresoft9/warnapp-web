@@ -34,6 +34,15 @@ try {
     process.exit(1);
 }
 
+// Check if tesseract is installed (optional, for OCR fallback)
+let Tesseract;
+try {
+    Tesseract = require('tesseract.js');
+} catch (error) {
+    console.log('ℹ️  Tesseract.js no instalado - OCR fallback deshabilitado');
+    console.log('   Para habilitar: npm install tesseract.js\n');
+}
+
 // Read current stats
 let currentStats;
 try {
@@ -42,6 +51,61 @@ try {
 } catch (error) {
     console.error('❌ Error reading stats file:', error.message);
     process.exit(1);
+}
+
+/**
+ * Extract follower count from screenshot using OCR
+ * Fallback method when HTML parsing fails
+ */
+async function extractFollowersFromScreenshot(screenshotPath, platform = 'instagram') {
+    if (!Tesseract) {
+        return null; // OCR not available
+    }
+    
+    try {
+        console.log(`   🔍 Intentando OCR en screenshot...`);
+        
+        const { data: { text } } = await Tesseract.recognize(
+            screenshotPath,
+            'eng',
+            {
+                logger: () => {} // Suppress verbose logs
+            }
+        );
+        
+        // Look for patterns like "2,159 seguidores" or "2.1K followers" or "2159 followers"
+        const patterns = [
+            /(\d{1,3}(?:[,\.]\d{3})*(?:[,\.]\d+)?[KMB]?)\s*(?:seguidores?|followers?)/i,
+            /(?:seguidores?|followers?)\s*(\d{1,3}(?:[,\.]\d{3})*(?:[,\.]\d+)?[KMB]?)/i,
+        ];
+        
+        for (const pattern of patterns) {
+            const match = text.match(pattern);
+            if (match) {
+                let num = match[1].replace(/[,\.]/g, '');
+                
+                // Handle K, M, B suffixes
+                if (num.endsWith('K')) {
+                    return Math.round(parseFloat(num) * 1000);
+                } else if (num.endsWith('M')) {
+                    return Math.round(parseFloat(num) * 1000000);
+                } else if (num.endsWith('B')) {
+                    return Math.round(parseFloat(num) * 1000000000);
+                }
+                
+                const followers = parseInt(num);
+                if (!isNaN(followers) && followers > 100) {
+                    console.log(`   ✅ OCR detectó: ${followers.toLocaleString()} seguidores`);
+                    return followers;
+                }
+            }
+        }
+        
+        return null;
+    } catch (error) {
+        console.log(`   ⚠️  OCR falló: ${error.message}`);
+        return null;
+    }
 }
 
 /**
@@ -171,13 +235,37 @@ async function getInstagramFollowers(username, browser) {
             return null;
         });
         
+        // If HTML parsing failed, try OCR as fallback
+        if (!followers && Tesseract) {
+            console.log(`   📸 HTML parsing falló, intentando OCR...`);
+            const screenshotPath = path.join(__dirname, 'temp-instagram-screenshot.png');
+            
+            try {
+                await page.screenshot({ 
+                    path: screenshotPath, 
+                    fullPage: false,
+                    clip: { x: 0, y: 0, width: 800, height: 600 }
+                });
+                
+                followers = await extractFollowersFromScreenshot(screenshotPath, 'instagram');
+                
+                // Clean up screenshot
+                try {
+                    fs.unlinkSync(screenshotPath);
+                } catch (e) {}
+                
+            } catch (screenshotError) {
+                console.log(`   ⚠️  Screenshot falló: ${screenshotError.message}`);
+            }
+        }
+        
         await page.close();
         
         if (followers) {
             console.log(`   ✅ ${followers.toLocaleString()} seguidores`);
             return followers;
         } else {
-            console.log(`   ⚠️  No se pudo extraer el número`);
+            console.log(`   ⚠️  No se pudo extraer el número (HTML + OCR fallaron)`);
             return null;
         }
         
@@ -238,13 +326,37 @@ async function getTikTokFollowers(username, browser) {
             return null;
         });
         
+        // If HTML parsing failed, try OCR as fallback
+        if (!followers && Tesseract) {
+            console.log(`   📸 HTML parsing falló, intentando OCR...`);
+            const screenshotPath = path.join(__dirname, 'temp-tiktok-screenshot.png');
+            
+            try {
+                await page.screenshot({ 
+                    path: screenshotPath, 
+                    fullPage: false,
+                    clip: { x: 0, y: 0, width: 800, height: 600 }
+                });
+                
+                followers = await extractFollowersFromScreenshot(screenshotPath, 'tiktok');
+                
+                // Clean up screenshot
+                try {
+                    fs.unlinkSync(screenshotPath);
+                } catch (e) {}
+                
+            } catch (screenshotError) {
+                console.log(`   ⚠️  Screenshot falló: ${screenshotError.message}`);
+            }
+        }
+        
         await page.close();
         
         if (followers) {
             console.log(`   ✅ ${followers.toLocaleString()} seguidores`);
             return followers;
         } else {
-            console.log(`   ⚠️  No se pudo extraer el número`);
+            console.log(`   ⚠️  No se pudo extraer el número (HTML + OCR fallaron)`);
             return null;
         }
         

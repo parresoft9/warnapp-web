@@ -25,7 +25,7 @@ jobs:
           node-version: '20'
       
       - name: 📦 Install dependencies
-        run: npm install puppeteer
+        run: npm install
       
       - name: 🔍 Run social stats scraper
         run: node scrape-social-stats.js

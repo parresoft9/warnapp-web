@@ -423,8 +423,7 @@ const testData = {
             ambiente: "iOS / Android",
             tests: [
                 { id: "9.1.1", desc: "Instalar app por primera vez", obs: "" },
-                { id: "9.1.2", desc: "Completar registro/login", obs: "" },
-                { id: "9.1.3", desc: "Verificar diálogo de permisos de notificaciones", obs: "" },
+                { id: "9.1.2", desc: "Verificar diálogo de permisos de notificaciones", obs: "Después de completar tutorial" },
                 { id: "9.1.4", desc: "Conceder permisos", obs: "" },
                 { id: "9.1.5", desc: "Verificar confirmación", obs: "" }
             ]
@@ -437,7 +436,7 @@ const testData = {
                 { id: "9.2.2", desc: "Crear alerta desde otro dispositivo", obs: "" },
                 { id: "9.2.3", desc: "Esperar 5-10 segundos", obs: "Puede tardar" },
                 { id: "9.2.4", desc: "Verificar llegada de notificación push", obs: "" },
-                { id: "9.2.5", desc: "Verificar título '🚨 Nueva alerta...'", obs: "" },
+                { id: "9.2.5", desc: "Verificar título '🚨 Vehiculo XXXX en riesgo...'", obs: "" },
                 { id: "9.2.6", desc: "Verificar cuerpo con matrícula y mensaje", obs: "" },
                 { id: "9.2.7", desc: "Tap en la notificación", obs: "" },
                 { id: "9.2.8", desc: "Verificar que la app se abre", obs: "" },
@@ -451,7 +450,7 @@ const testData = {
                 { id: "9.3.1", desc: "Tener app abierta en 'Mis Vehículos'", obs: "" },
                 { id: "9.3.2", desc: "Crear alerta desde otro dispositivo", obs: "" },
                 { id: "9.3.3", desc: "Esperar 5-10 segundos", obs: "" },
-                { id: "9.3.4", desc: "Verificar banner in-app visible", obs: "Arriba de la pantalla" },
+                { id: "9.3.4", desc: "Verificar banner in-app visible", obs: "Abajo de la pantalla, en color AZUL" },
                 { id: "9.3.5", desc: "Verificar animación/sonido", obs: "" },
                 { id: "9.3.6", desc: "Tap en el banner", obs: "" },
                 { id: "9.3.7", desc: "Verificar navegación a la alerta", obs: "" }

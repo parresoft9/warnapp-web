@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WarnApp - Próximamente. Algo increíble está en camino.">
-    <meta name="keywords" content="warnapp, coming soon, próximamente">
-    <title>WarnApp - Próximamente</title>
+    <meta name="description" content="WarnApp - Beta Testing. Únete a nuestro programa de beta testers y prueba la app antes del lanzamiento oficial.">
+    <meta name="keywords" content="warnapp, beta testing, beta tester, prueba beta">
+    <title>WarnApp - Beta Testing</title>
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -455,48 +455,50 @@
         </div>
 
         <!-- Title -->
-        <h1 class="title">Algo Increíble Está en Camino</h1>
-        <p class="subtitle">Estamos trabajando duro para traerte la mejor experiencia</p>
+        <h1 class="title">🚀 Beta Cerrada en Marcha</h1>
+        <p class="subtitle">Estamos testeando internamente la app antes del lanzamiento oficial.<br>¿Quieres ayudarnos a probarla antes que nadie?</p>
 
-        <!-- Countdown Timer -->
-        <div class="countdown" id="countdown">
+        <!-- Beta Status -->
+        <div class="countdown" id="betaStatus">
             <div class="countdown-item">
-                <span class="countdown-value" id="days">00</span>
-                <span class="countdown-label">Días</span>
+                <span class="countdown-value" style="font-size: 3rem;">🧪</span>
+                <span class="countdown-label">Testing Beta</span>
             </div>
             <div class="countdown-item">
-                <span class="countdown-value" id="hours">00</span>
-                <span class="countdown-label">Horas</span>
+                <span class="countdown-value" style="font-size: 3rem;">👥</span>
+                <span class="countdown-label">Grupo Cerrado</span>
             </div>
             <div class="countdown-item">
-                <span class="countdown-value" id="minutes">00</span>
-                <span class="countdown-label">Minutos</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="seconds">00</span>
-                <span class="countdown-label">Segundos</span>
+                <span class="countdown-value" style="font-size: 3rem;">🔐</span>
+                <span class="countdown-label">Acceso Limitado</span>
             </div>
         </div>
 
-        <!-- Launch date -->
-        <div class="launch-date">📅 Lanzamiento: 15 de Marzo, 2026</div>
+        <!-- Beta info -->
+        <div class="launch-date" style="max-width: 700px; margin: 0 auto 2rem; line-height: 1.6;">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">✨ Estamos en fase de <strong>testing interno</strong></p>
+            <p style="font-size: 1rem; color: rgba(255,255,255,0.8); font-weight: 400;">
+                Si te interesa probar WarnApp <strong>antes del lanzamiento oficial</strong> y quieres colaborar reportando feedback, 
+                <span style="color: var(--primary-color);">apúntate aquí abajo</span> y te contactaremos.
+            </p>
+        </div>
 
-        <!-- Notify me section -->
+        <!-- Beta Tester signup -->
         <div class="notify-section">
             <form class="notify-form" id="notifyForm">
                 <input 
                     type="email" 
                     name="email"
                     class="notify-input" 
-                    placeholder="Tu email para notificarte" 
+                    placeholder="Tu email para unirte como beta tester" 
                     required 
                     id="emailInput"
                 >
-                <button type="submit" class="notify-button" id="submitButton">Notificarme</button>
+                <button type="submit" class="notify-button" id="submitButton">🚀 Quiero Probarla</button>
             </form>
             <div class="success-message" id="successMessage">
-                ✅ ¡Suscrito con éxito!<br>
-                <span style="font-size: 0.9rem; opacity: 0.9;">Te informaremos cuando publiquemos la app</span>
+                ✅ ¡Genial! Ya estás en la lista<br>
+                <span style="font-size: 0.9rem; opacity: 0.9;">Te contactaremos pronto para darte acceso a la beta privada 🎉</span>
             </div>
             <div class="error-message" id="errorMessage">
                 ❌ Algo salió mal. Por favor, inténtalo de nuevo.
@@ -545,8 +547,8 @@
             }
         }
 
-        // Countdown timer
-        function updateCountdown() {
+        // Countdown timer (DEPRECATED - ahora en beta testing)
+        /* function updateCountdown() {
             const launchDate = new Date('March 15, 2026 00:00:00').getTime();
             const now = new Date().getTime();
             const distance = launchDate - now;
@@ -565,7 +567,7 @@
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
+        } */
 
         // Handle form submission with AJAX (no redirect)
         document.addEventListener('DOMContentLoaded', function() {
@@ -590,7 +592,7 @@
                 try {
                     const formData = new FormData();
                     formData.append('email', emailInput.value);
-                    formData.append('_subject', 'Nueva suscripción - WarnApp Coming Soon');
+                    formData.append('_subject', '🚀 Nuevo Beta Tester - WarnApp');
                     
                     const response = await fetch('https://formspree.io/f/mnjzganj', {
                         method: 'POST',
@@ -632,8 +634,8 @@
 
         // Initialize
         createParticles();
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        // updateCountdown(); // Ya no necesario - ahora en modo beta
+        // setInterval(updateCountdown, 1000); // Ya no necesario - ahora en modo beta
     </script>
 </body>
 </html>

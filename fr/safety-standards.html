@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Normes de sécurité de WarnApp contre l'exploitation et les abus sexuels sur enfants (ESAE)">
+    <title>Normes de sécurité ESAE - WarnApp</title>
+    <link rel="icon" href="../resources/images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FFD700;
+            --secondary-color: #1C1C1E;
+            --text-dark: #1C1C1E;
+            --text-light: #5E5E5E;
+            --background-light: #FFFBF0;
+            --background-cream: #FFF9E5;
+            --white: #FFFEF8;
+            --safety-red: #FF3B30;
+            --safety-orange: #FF9500;
+            --safety-green: #34C759;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--background-light);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .logo-text-warn {
+            color: var(--primary-color);
+        }
+
+        .logo-text-app {
+            color: var(--text-dark);
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #6C6C70;
+            letter-spacing: 0.3px;
+            padding-left: 0.3rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo img {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            margin-top: 120px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--safety-red) 0%, var(--safety-orange) 100%);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.2);
+        }
+
+        .hero-section h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-section .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--safety-red);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .content-section h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .content-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFD1D1 100%);
+            border-left: 5px solid var(--safety-red);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .warning-box p {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #2C2C2E 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-section a:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                margin-top: 100px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="../resources/images/logo.png" alt="Logo WarnApp">
+                <div class="logo-text-container">
+                    <div class="logo-text">
+                        <span class="logo-text-warn">Warn</span><span class="logo-text-app">App</span>
+                    </div>
+                    <div class="logo-tagline">Sécurité entre vos mains</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="privacy-policy.html">Confidentialité</a></li>
+                <li><a href="terms-of-service.html">Conditions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-section">
+            <h1>🛡️ Normes de Sécurité ESAE</h1>
+            <p class="subtitle">
+                Notre Engagement Contre l'Exploitation et les Abus Sexuels sur Enfants
+            </p>
+            <div class="badge">PRIORITÉ À LA PROTECTION DE L'ENFANCE</div>
+        </div>
+
+        <div class="content-section">
+            <h2>Déclaration de Principes</h2>
+            <p>
+                Chez <strong>WarnApp</strong>, la sécurité des mineurs est notre priorité absolue. Nous maintenons une position de 
+                <strong>tolérance zéro</strong> face à toute forme d'exploitation et d'abus sexuels sur enfants (ESAE), 
+                y compris le matériel d'abus sexuel d'enfants (CSAM).
+            </p>
+            
+            <div class="warning-box">
+                <p>
+                    ⚠️ <strong>AVERTISSEMENT :</strong> WarnApp est une application d'alertes véhiculaires conçue exclusivement 
+                    pour la communication sur toute anomalie ou incident observé sur un véhicule immatriculé afin d'en avertir le propriétaire. 
+                    Elle est adaptée à tous les publics. Nous ne tolérons aucun type de contenu lié aux mineurs.
+                </p>
+            </div>
+
+            <p>
+                Ce document établit les normes, politiques et procédures que nous mettons en œuvre pour prévenir, 
+                détecter et répondre à tout contenu ou activité liée à l'ESAE sur notre plateforme.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>1. Politiques de Prévention</h2>
+            
+            <h3>1.1 Limitation du Contenu</h3>
+            <ul>
+                <li><strong>Objectif spécifique :</strong> WarnApp permet uniquement de partager des alertes concernant des incidents observés sur des véhicules spécifiques pour en informer le propriétaire :
+                    <ul>
+                        <li><strong>Dommages ou impacts au véhicule :</strong> Par exemple, rayure sur la carrosserie, bosse, collision dans un parking</li>
+                        <li><strong>Portes ou compartiments ouverts :</strong> Par exemple, porte non fermée, coffre ouvert, vitre baissée</li>
+                        <li><strong>Lumières ou systèmes activés :</strong> Par exemple, phares allumés, alarme sonnant, moteur en marche</li>
+                        <li><strong>Situations de risque ou de sécurité :</strong> Par exemple, tentative de vol, véhicule en cours de remorquage, pneu crevé</li>
+                    </ul>
+                </li>
+                <li><strong>Interdiction absolue de :</strong>
+                    <ul>
+                        <li>Images, vidéos ou contenu de mineurs</li>
+                        <li>Contenu sexuel de tout type</li>
+                        <li>Messages ou communications privées entre utilisateurs</li>
+                        <li>Profils publics avec des informations personnelles sensibles</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>1.2 Conception Sécurisée</h3>
+            <p>Notre application est conçue dès son architecture pour minimiser les risques :</p>
+            <ul>
+                <li><strong>Pas de messagerie directe :</strong> Il n'existe pas de système de chat ou de messagerie privée entre utilisateurs</li>
+                <li><strong>Alertes contextuelles :</strong> Les alertes ne peuvent être créées que pour des emplacements de circulation spécifiques</li>
+                <li><strong>Modération préventive :</strong> Limites strictes sur les caractères et les types de contenu multimédia</li>
+                <li><strong>Anonymisation :</strong> Les utilisateurs ne peuvent pas rechercher ou contacter directement d'autres utilisateurs</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>2. Systèmes de Détection</h2>
+
+            <h3>2.1 Modération Automatisée</h3>
+            <p>
+                Analyse automatique de toutes les images et vidéos téléchargées à l'aide d'algorithmes de 
+                détection de contenu inapproprié avant leur publication.
+            </p>
+            <ul>
+                <li><strong>IA d'analyse :</strong> Détection automatique de contenu potentiellement dangereux</li>
+                <li><strong>PhotoDNA/Hash :</strong> Intégration avec des bases de données de hachage CSAM connues (PhotoDNA de Microsoft, NCMEC Hash Database) pour blocage instantané</li>
+                <li><strong>Filtres de texte :</strong> Filtrage automatique des mots-clés, phrases et modèles associés à l'exploitation infantile dans les messages d'alerte</li>
+                <li><strong>Blocage immédiat :</strong> Tout contenu suspect est automatiquement bloqué et mis en quarantaine pour révision manuelle urgente</li>
+            </ul>
+
+            <h3>2.2 Révision Humaine</h3>
+            <ul>
+                <li><strong>Équipe de modération :</strong> Personnel formé révisant le contenu signalé ou marqué par les systèmes automatiques</li>
+                <li><strong>Protocole d'escalade :</strong> Le contenu suspect est révisé en moins d'1 heure par des modérateurs seniors</li>
+                <li><strong>Formation continue :</strong> Formation régulière de l'équipe à l'identification du CSAM et du grooming</li>
+                <li><strong>Bien-être de l'équipe :</strong> Protocoles de soutien psychologique pour les modérateurs exposés à du contenu traumatisant</li>
+            </ul>
+
+            <h3>2.3 Système de Signalements Utilisateurs</h3>
+            <ul>
+                <li><strong>Signalement facile :</strong> Bouton de signalement visible sur chaque alerte avec des catégories spécifiques</li>
+                <li><strong>Anonymat protégé :</strong> Les signalements sont complètement anonymes</li>
+                <li><strong>Priorité maximale :</strong> Les signalements de contenu lié aux mineurs ont la priorité maximale de révision</li>
+                <li><strong>Retour d'information :</strong> Confirmation à l'utilisateur signalant des actions prises (sans révéler de détails sensibles)</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>3. Procédures de Réponse</h2>
+
+            <h3>3.1 Protocole d'Action Immédiate</h3>
+            <p>Lorsqu'un contenu suspect d'ESAE est détecté ou signalé, nous activons immédiatement :</p>
+            <ol>
+                <li><strong>Suppression immédiate :</strong> Le contenu est supprimé de tous les serveurs dès sa détection</li>
+                <li><strong>Suspension de compte :</strong> Blocage immédiat et permanent de l'utilisateur contrevenant</li>
+                <li><strong>Préservation des preuves :</strong> Capture forensique des données pour enquête légale</li>
+                <li><strong>Notification aux autorités :</strong> Signalement obligatoire aux autorités compétentes</li>
+                <li><strong>Révision de réseau :</strong> Analyse des comptes possiblement liés ou réseaux d'abus</li>
+            </ol>
+
+            <h3>3.2 Collaboration avec les Autorités</h3>
+            <p>
+                📋 <strong>Engagement légal :</strong> WarnApp collabore pleinement avec les autorités policières et judiciaires 
+                de tous les pays où nous opérons. Nous fournissons des preuves complètes et coopérons aux enquêtes sans délai.
+            </p>
+            <ul>
+                <li><strong>Signalements au NCMEC :</strong> Notification obligatoire au National Center for Missing & Exploited Children (NCMEC) aux États-Unis</li>
+                <li><strong>Europol/Interpol :</strong> Collaboration avec les réseaux internationaux de lutte contre le CSAM</li>
+                <li><strong>Autorités locales :</strong> Signalement à la police nationale et aux procureurs spécialisés dans chaque juridiction</li>
+                <li><strong>Temps de réponse :</strong> Rapports envoyés en moins de 24 heures après la détection</li>
+                <li><strong>Préservation des données :</strong> Conservation des preuves numériques selon les exigences légales de chaque pays</li>
+            </ul>
+
+            <h3>3.3 Bannissements et Prévention de la Récidive</h3>
+            <ul>
+                <li><strong>Bannissement permanent :</strong> Interdiction à vie d'utilisation de la plateforme</li>
+                <li><strong>Liste noire d'appareils :</strong> Identifiants d'appareil bloqués de manière permanente</li>
+                <li><strong>Blocage d'emails/téléphones :</strong> Impossibilité de créer de nouveaux comptes avec les mêmes données</li>
+                <li><strong>Partage de hachages :</strong> Nous signalons les hachages de contenu CSAM aux bases de données mondiales</li>
+                <li><strong>Liste de surveillance :</strong> Surveillance des modèles de tentatives d'inscription suspectes</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>4. Transparence et Responsabilité</h2>
+
+            <h3>4.1 Rapports de Transparence</h3>
+            <p>
+                Nous publierons annuellement (à partir de 2027) des rapports de transparence incluant :
+            </p>
+            <ul>
+                <li>Nombre de contenus supprimés liés à l'ESAE</li>
+                <li>Comptes suspendus de manière permanente</li>
+                <li>Signalements envoyés aux autorités</li>
+                <li>Améliorations mises en œuvre dans les systèmes de détection</li>
+                <li>Temps de réponse moyen aux incidents</li>
+            </ul>
+
+            <h3>4.2 Audits Externes</h3>
+            <ul>
+                <li><strong>Révision indépendante :</strong> Audits annuels de nos systèmes de protection de l'enfance</li>
+                <li><strong>Certifications :</strong> Adhésion aux normes internationales de sécurité numérique</li>
+                <li><strong>Amélioration continue :</strong> Mise en œuvre des recommandations d'experts en protection de l'enfance</li>
+            </ul>
+
+            <h3>4.3 Éducation et Sensibilisation</h3>
+            <ul>
+                <li><strong>Guides utilisateurs :</strong> Informations claires sur quoi signaler et comment le faire</li>
+                <li><strong>Collaboration avec les ONG :</strong> Travail conjoint avec des organisations de protection de l'enfance</li>
+                <li><strong>Formation interne :</strong> Toute l'équipe WarnApp reçoit une formation annuelle en protection de l'enfance</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>5. Technologies Mises en Œuvre</h2>
+
+            <p>
+                💡 <strong>Investissement en sécurité :</strong> WarnApp investit des ressources importantes dans la technologie 
+                de pointe pour la protection des mineurs, incluant des outils d'IA, des bases de données de hachage 
+                et des systèmes de modération automatisée.
+            </p>
+
+            <ul>
+                <li><strong>Google Cloud Vision API :</strong> Détection de contenu inapproprié dans les images</li>
+                <li><strong>Microsoft PhotoDNA :</strong> Comparaison avec la base de données CSAM connue</li>
+                <li><strong>NCMEC Hash Database :</strong> Vérification contre les hachages de contenu illégal</li>
+                <li><strong>Amazon Rekognition :</strong> Analyse supplémentaire du contenu visuel</li>
+                <li><strong>Content Safety AI :</strong> Classification du contenu textuel et multimédia</li>
+                <li><strong>Firebase ML Kit :</strong> Analyse sur appareil avant téléchargement sur les serveurs</li>
+                <li><strong>Système de réputation :</strong> Algorithme identifiant les comportements suspects</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>6. Engagement Corporate</h2>
+
+            <p>
+                WarnApp s'engage à :
+            </p>
+
+            <ul>
+                <li><strong>🎯 Tolérance Zéro :</strong> Maintenir une politique stricte de tolérance zéro contre toute forme d'ESAE sur notre plateforme</li>
+                <li><strong>🚀 Innovation Continue :</strong> Adopter et mettre en œuvre les dernières technologies et meilleures pratiques en protection de l'enfance</li>
+                <li><strong>🤝 Collaboration Mondiale :</strong> Travailler étroitement avec les autorités, les ONG et d'autres plateformes technologiques dans la lutte contre l'ESAE</li>
+                <li><strong>📊 Transparence Totale :</strong> Être transparent sur nos efforts, résultats et domaines d'amélioration en protection de l'enfance</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>7. Conformité Légale</h2>
+
+            <p>
+                WarnApp respecte toutes les lois et réglementations internationales relatives à la protection de l'enfance, notamment :
+            </p>
+
+            <ul>
+                <li><strong>COPPA (États-Unis) :</strong> Children's Online Privacy Protection Act</li>
+                <li><strong>RGPD (UE) :</strong> Règlement Général sur la Protection des Données (protection spéciale des mineurs)</li>
+                <li><strong>Loi Organique 1/1996 (Espagne) :</strong> De Protection Juridique du Mineur</li>
+                <li><strong>Loi 26.904 (Argentine) :</strong> Grooming ou cyber-harcèlement</li>
+                <li><strong>Lei nº 12.015/2009 (Brésil) :</strong> Crimes contre la dignité sexuelle</li>
+                <li><strong>Child Safety Online (Royaume-Uni) :</strong> Online Safety Act 2023</li>
+                <li><strong>Digital Services Act (UE) :</strong> Obligations de modération de contenu illégal</li>
+            </ul>
+
+            <div class="warning-box">
+                <p>
+                    ⚖️ <strong>Responsabilité légale :</strong> La distribution, possession ou création de matériel d'abus sexuel d'enfants 
+                    est un crime grave dans tous les pays. Les contrevenants seront signalés aux autorités et peuvent faire face 
+                    à des peines de prison allant jusqu'à 20 ans selon la juridiction.
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>📞 Contact Sécurité</h2>
+            <p>
+                Si vous détectez du contenu suspect ou avez des informations sur l'exploitation d'enfants sur notre plateforme :
+            </p>
+            <p>
+                <strong>Email de sécurité :</strong> <a href="mailto:safety@warnapp.com">safety@warnapp.com</a><br>
+                <strong>Signalement urgent :</strong> <a href="mailto:abuse@warnapp.com">abuse@warnapp.com</a>
+            </p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                Pour des signalements anonymes, vous pouvez également contacter directement :<br>
+                <strong>NCMEC CyberTipline :</strong> <a href="https://www.cybertipline.org" target="_blank">www.cybertipline.org</a><br>
+                <strong>Internet Watch Foundation :</strong> <a href="https://www.iwf.org.uk" target="_blank">www.iwf.org.uk</a><br>
+                <strong>Europol :</strong> <a href="https://www.europol.europa.eu/report-a-crime" target="_blank">www.europol.europa.eu</a>
+            </p>
+        </div>
+
+        <div class="content-section">
+            <p style="text-align: center; color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">
+                <strong>Dernière mise à jour :</strong> 8 mai 2026<br>
+                <strong>Version :</strong> 1.0<br>
+                <strong>Équipe :</strong> WarnApp<br>
+                <strong>Juridiction :</strong> Espagne (Applicable internationalement)
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            © 2026 WarnApp. Tous droits réservés.
+        </p>
+        <p>
+            <a href="privacy-policy.html">Politique de Confidentialité</a> |
+            <a href="terms-of-service.html">Conditions d'Utilisation</a> |
+            <a href="acceptable-use-policy.html">Politique d'Utilisation Acceptable</a> |
+            <a href="safety-standards.html">Normes de Sécurité</a>
+        </p>
+        <div id="warnapp-social-links" data-load-stats="true" data-stats-path="../social-stats.json" data-language="fr"></div>
+    </footer>
+
+    <script src="../social-links.js"></script>
+</body>
+</html>

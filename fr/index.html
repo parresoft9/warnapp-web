@@ -857,13 +857,23 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background: var(--white);
+                background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
                 flex-direction: column;
                 padding: 5rem 2rem 2rem;
-                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
                 transition: right 0.3s ease;
                 gap: 1.5rem;
                 align-items: flex-start;
+                border-left: 1px solid rgba(255, 215, 0, 0.2);
+            }
+
+            .nav-links a {
+                color: #FFFFFF;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-color);
             }
 
             .nav-links.active {
@@ -877,6 +887,8 @@
 
             .language-selector select {
                 width: 100%;
+                background: var(--primary-color);
+                color: var(--text-dark);
             }
 
             .hero-content {
@@ -1045,6 +1057,10 @@
         </div>
         <div class="screenshots-container">
             <div class="screenshot-item">
+                <img src="images/tutorial/tutorial_welcome.png" alt="Écran de bienvenue">
+                <div class="screenshot-label">🔐 4 Modes de Connexion</div>
+            </div>
+            <div class="screenshot-item">
                 <img src="images/tutorial/tutorial_map.png" alt="Carte avec alertes en temps réel">
                 <div class="screenshot-label">📍 Carte Interactive</div>
             </div>
@@ -1063,6 +1079,10 @@
             <div class="screenshot-item">
                 <img src="images/tutorial/tutorial_reputation.png" alt="Système de réputation">
                 <div class="screenshot-label">⭐ Réputation</div>
+            </div>
+            <div class="screenshot-item">
+                <img src="images/tutorial/tutorial_profile.png" alt="Profil utilisateur">
+                <div class="screenshot-label">👤 Votre Profil</div>
             </div>
         </div>
     </section>

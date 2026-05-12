@@ -833,6 +833,429 @@
             font-weight: 800;
         }
 
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #B8B8BA;
+            font-weight: 500;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 6rem 2rem;
+            background: var(--background-cream);
+        }
+
+        .security-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .security-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            border: 2px solid #FFF4CC;
+            transition: all 0.3s;
+        }
+
+        .security-item:hover {
+            transform: translateX(10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .security-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .security-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .security-text p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .security-image {
+            position: relative;
+        }
+
+        .security-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50%;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #FFF4CC;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .testimonial-stars {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-orange) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Business Section */
+        .business-section {
+            padding: 6rem 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .business-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .business-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .business-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .business-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .business-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .business-card p {
+            color: #B8B8BA;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--background-light);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            border: 2px solid #FFF4CC;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-dark);
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 25px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            color: #2e7d32;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .trust-badge-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Use Cases */
+        .use-cases-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .use-case {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid #FFE5A0;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .use-case:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .use-case-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case h4 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 75px;
+            background: white;
+            color: #333;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hamburger-menu {
@@ -933,6 +1356,45 @@
                 width: 26px;
                 height: 26px;
             }
+
+            .security-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .security-badge {
+                position: static;
+                margin: 0 auto 2rem;
+            }
+
+            .business-section h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -1009,6 +1471,28 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10.000+</div>
+                <div class="stat-label">Aktive Benutzer</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25.000+</div>
+                <div class="stat-label">Gesendete Warnungen</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4,8/5</div>
+                <div class="stat-label">Durchschnittliche Bewertung</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Verfügbare Sprachen</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="section-header">
@@ -1045,6 +1529,52 @@
                 <div class="feature-icon">⭐</div>
                 <h3>Sistema de Reputación</h3>
                 <p>Valora las alertas y construye una comunidad confiable de usuarios verificados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="security-content">
+            <div class="security-features">
+                <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>Ihre Privatsphäre ist unsere Priorität</h2>
+                    <p>Vollständiger Schutz Ihrer persönlichen Daten und Ihres Fahrzeugs</p>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">🔐</div>
+                    <div class="security-text">
+                        <h3>DSGVO-konform</h3>
+                        <p>Vollständige Einhaltung der europäischen Datenschutzbestimmungen</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">🔒</div>
+                    <div class="security-text">
+                        <h3>Verschlüsselte Daten</h3>
+                        <p>Ende-zu-Ende-Verschlüsselung aller Ihrer sensiblen Informationen</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">🚫</div>
+                    <div class="security-text">
+                        <h3>Private Kennzeichen</h3>
+                        <p>Ihre Kennzeichen werden niemals öffentlich mit anderen Benutzern geteilt</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon">✅</div>
+                    <div class="security-text">
+                        <h3>Volle Kontrolle</h3>
+                        <p>Sie entscheiden, welche Informationen Sie teilen und mit wem</p>
+                    </div>
+                </div>
+            </div>
+            <div class="security-image">
+                <div class="phone-container">
+                    <img src="images/tutorial/tutorial_profile.png" alt="WarnApp Sicherheit" class="phone-screenshot">
+                </div>
+                <div class="security-badge">✓ Verifiziert & Sicher</div>
             </div>
         </div>
     </section>
@@ -1087,6 +1617,49 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>Was unsere Benutzer sagen</h2>
+            <p>Tausende von Menschen vertrauen bereits WarnApp, um ihre Fahrzeuge zu schützen</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Dank WarnApp wurde ich benachrichtigt, dass ich meine Lichter angelassen hatte. Sie haben meine Batterie gerettet! Die Community ist erstaunlich."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div class="testimonial-info">
+                        <div class="testimonial-name">María García</div>
+                        <div class="testimonial-location">Madrid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Sie haben mich über einen Kratzer auf dem Parkplatz informiert. Ich konnte rechtzeitig die Sicherheitskameras überprüfen. Unverzichtbar!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">C</div>
+                    <div class="testimonial-info">
+                        <div class="testimonial-name">Carlos Rodríguez</div>
+                        <div class="testimonial-location">Barcelona</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Jemand sah, dass meine Hintertür schlecht geschlossen war und benachrichtigte mich sofort. Unglaubliche Community der gegenseitigen Hilfe."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">L</div>
+                    <div class="testimonial-info">
+                        <div class="testimonial-name">Laura Martínez</div>
+                        <div class="testimonial-location">Valencia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
         <div class="section-header">
@@ -1114,6 +1687,67 @@
                 <h3>Schnell Reagieren</h3>
                 <p>Sehen Sie Standort, Fotos und Details der Warnung, um sofort zu handeln.</p>
             </div>
+        </div>
+        
+        <!-- Use Cases -->
+        <div class="section-header" style="margin-top: 4rem;">
+            <h2>Für wen ist WarnApp?</h2>
+            <p>Die perfekte Lösung für verschiedene Bedürfnisse</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case">
+                <div class="use-case-icon">👨‍👩‍👧</div>
+                <h4>Familien</h4>
+                <p>Verwalten Sie mehrere Autos in einem Konto</p>
+            </div>
+            <div class="use-case">
+                <div class="use-case-icon">🚚</div>
+                <h4>Unternehmen</h4>
+                <p>Überwachen Sie Ihre gesamte Fahrzeugflotte</p>
+            </div>
+            <div class="use-case">
+                <div class="use-case-icon">🏍️</div>
+                <h4>Motorradfahrer</h4>
+                <p>Schützen Sie Ihr Motorrad auf öffentlichen Parkplätzen</p>
+            </div>
+            <div class="use-case">
+                <div class="use-case-icon">🏢</div>
+                <h4>Gemeinschaften</h4>
+                <p>Kümmern Sie sich um die Fahrzeuge Ihrer Nachbarschaft</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="business-section">
+        <div class="business-content">
+            <div class="section-header">
+                <h2>WarnApp für Unternehmen</h2>
+                <p>Maßgeschneiderte Lösungen für Ihr Unternehmen</p>
+            </div>
+            <div class="business-grid">
+                <div class="business-card">
+                    <div class="business-icon">🚐</div>
+                    <h3>Lieferflotten</h3>
+                    <p>Überwachen Sie Ihre gesamte Flotte mit zentralisierten Warnungen und Echtzeit-Statistiken</p>
+                </div>
+                <div class="business-card">
+                    <div class="business-icon">🚗</div>
+                    <h3>Autovermietung</h3>
+                    <p>Schützen Sie Ihre Investition mit Benachrichtigungen über den Status Ihrer Mietfahrzeuge</p>
+                </div>
+                <div class="business-card">
+                    <div class="business-icon">🅿️</div>
+                    <h3>Verwaltete Parkplätze</h3>
+                    <p>Bieten Sie Ihren Kunden einen Mehrwert mit integriertem Warnsystem</p>
+                </div>
+                <div class="business-card">
+                    <div class="business-icon">📊</div>
+                    <h3>API-Integration</h3>
+                    <p>Verbinden Sie WarnApp mit Ihren bestehenden Geschäftssystemen</p>
+                </div>
+            </div>
+            <a href="mailto:sales@warnapp.es" class="btn-primary" style="margin-top: 2rem; display: inline-flex;">Vertrieb Kontaktieren</a>
         </div>
     </section>
 
@@ -1168,6 +1802,102 @@
                     <li>✓ Admin-Panel</li>
                 </ul>
                 <a href="mailto:sales@warnapp.es" class="btn-primary" style="width: 100%; justify-content: center;">Kontaktieren</a>
+            </div>
+        </div>
+        
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <span class="trust-badge-icon">✓</span>
+                <span>DSGVO-konform</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">🔒</span>
+                <span>SSL-gesichert</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">✓</span>
+                <span>App Store Verifiziert</span>
+            </div>
+            <div class="trust-badge">
+                <span class="trust-badge-icon">✓</span>
+                <span>Google Play Verifiziert</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="section-header">
+            <h2>Häufig gestellte Fragen</h2>
+            <p>Wir beantworten Ihre Fragen zu WarnApp</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Ist WarnApp kostenlos? Wie viel kostet es?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Ja! Ihr erstes Fahrzeug ist im ersten Jahr vollständig KOSTENLOS. Danach kostet es nur 0,99€/Jahr. Wenn Sie mehr Fahrzeuge benötigen, haben wir Pläne ab 1,99€/Jahr für 3 Fahrzeuge. Keine Verpflichtung, Sie können jederzeit kündigen.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Wie schützt WarnApp meine Privatsphäre?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Ihre Privatsphäre ist unsere Priorität. Ihre Kennzeichen werden niemals öffentlich geteilt, alle Daten sind verschlüsselt, wir halten uns strikt an die europäische DSGVO und Sie haben die volle Kontrolle über Ihre Informationen. Warnungen sind anonym, bis Sie sich entscheiden zu antworten.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Wie werde ich benachrichtigt, wenn es ein Problem mit meinem Fahrzeug gibt?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Sie erhalten sofort eine Push-Benachrichtigung auf Ihrem Telefon. Die Warnung enthält Fotos, den genauen Standort, eine Problembeschreibung und Daten des Benutzers, der sie gemeldet hat. Sie können direkt aus der App antworten und dem Benutzer danken, der Ihnen geholfen hat.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Funktioniert es in meinem Land?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        WarnApp funktioniert in ganz Europa und expandiert weltweit. Die App ist auf Spanisch, Englisch, Deutsch und Französisch verfügbar. Je mehr Benutzer sich in Ihrer Region anschließen, desto effektiver wird das Community-Schutznetzwerk sein.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Was ist, wenn ich mein Telefon nicht in der Nähe habe, wenn ich benachrichtigt werde?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Benachrichtigungen werden in Ihrem Verlauf in der App gespeichert. Zusätzlich können Sie E-Mail-Benachrichtigungen konfigurieren. Alle Warnungen enthalten Zeitstempel, Standort und Fotos, sodass Sie immer den vollständigen Kontext haben, auch wenn Sie die Warnung später sehen.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Kann ich WarnApp für mein Unternehmen verwenden?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Natürlich! Wir haben Unternehmenspläne mit unbegrenzten Fahrzeugen, API-Integration, Admin-Dashboard und 24/7-Support. Perfekt für Lieferflotten, Autovermietungen, Parkplätze und mehr. Kontaktieren Sie sales@warnapp.es für weitere Informationen.
+                    </div>
+                </div>
             </div>
         </div>
     </section>

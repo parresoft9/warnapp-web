@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.parresoft9.warnapp",
+      "sha256_cert_fingerprints": [
+        "88:6B:28:64:C6:41:57:01:C5:C9:95:C5:67:27:80:1E:9F:D9:DD:40:A9:F8:2D:A4:E4:C5:D0:E3:DF:65:5C:3C"
+      ]
+    }
+  }
+]
